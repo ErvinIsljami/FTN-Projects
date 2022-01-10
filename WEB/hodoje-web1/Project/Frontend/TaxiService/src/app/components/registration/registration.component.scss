@@ -1,0 +1,14 @@
+.wrapper{
+    margin-top: 100px;
+    /* width:350px; */
+}
+
+.form-group.required label:before {
+    content:"*";
+    color:red;
+}
+
+mark{
+    color: red;
+    background-color: transparent;
+}

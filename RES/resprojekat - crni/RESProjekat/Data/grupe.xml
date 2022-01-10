@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ArrayOfGrupa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Grupa>
+    <Kod>GR-01</Kod>
+    <BrojJedinica>0</BrojJedinica>
+    <TrenutnaProizvodnja>52352</TrenutnaProizvodnja>
+    <MaxProizvodnja>532354</MaxProizvodnja>
+  </Grupa>
+  <Grupa>
+    <Kod>GR-02</Kod>
+    <BrojJedinica>0</BrojJedinica>
+    <TrenutnaProizvodnja>523052</TrenutnaProizvodnja>
+    <MaxProizvodnja>532354</MaxProizvodnja>
+  </Grupa>
+  <Grupa>
+    <Kod>GR-03</Kod>
+    <BrojJedinica>0</BrojJedinica>
+    <TrenutnaProizvodnja>52352</TrenutnaProizvodnja>
+    <MaxProizvodnja>532354</MaxProizvodnja>
+  </Grupa>
+</ArrayOfGrupa>

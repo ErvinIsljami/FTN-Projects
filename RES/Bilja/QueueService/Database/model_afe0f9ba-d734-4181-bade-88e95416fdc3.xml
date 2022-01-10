@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Positions>
+    <Position>
+      <X>1</X>
+      <Y>2</Y>
+      <Z>3</Z>
+    </Position>
+    <Position>
+      <X>4</X>
+      <Y>5</Y>
+      <Z>6</Z>
+    </Position>
+    <Position>
+      <X>7</X>
+      <Y>8</Y>
+      <Z>9</Z>
+    </Position>
+  </Positions>
+  <Items>
+    <Item>
+      <Name>item1</Name>
+      <Quantity>0</Quantity>
+      <IsActive>false</IsActive>
+      <DestructivePower>0</DestructivePower>
+    </Item>
+    <Item>
+      <Name>item2</Name>
+      <Quantity>0</Quantity>
+      <IsActive>false</IsActive>
+      <DestructivePower>0</DestructivePower>
+    </Item>
+    <Item>
+      <Name>item3</Name>
+      <Quantity>0</Quantity>
+      <IsActive>false</IsActive>
+      <DestructivePower>0</DestructivePower>
+    </Item>
+  </Items>
+  <Clients />
+</DataModel>

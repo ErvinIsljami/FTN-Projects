@@ -1,0 +1,23 @@
+﻿<Window x:Class="PR101_2015.View.AddReaktorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PR101_2015.View"
+        mc:Ignorable="d"
+        Title="AddReaktorWindow" Height="307" Width="256.973">
+    <Grid Margin="0,0,2,0">
+        <Label x:Name="label" Content="Add new object" HorizontalAlignment="Left" Height="34" Margin="67,10,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label x:Name="label1" Content="ID:" HorizontalAlignment="Left" Height="23" Margin="10,44,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label x:Name="label2" Content="Name:" HorizontalAlignment="Left" Height="23" Margin="10,103,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.495,-0.043"/>
+        <Label x:Name="label3" Content="Type:" HorizontalAlignment="Left" Height="29" Margin="10,162,0,0" VerticalAlignment="Top" Width="93"/>
+        <TextBox Text="{Binding TextBox1Value}" HorizontalAlignment="Left" Height="23" Margin="128,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" />
+        <TextBox Text="{Binding TextBox2Value}" HorizontalAlignment="Left" Height="23" Margin="128,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103"/>
+        <ComboBox x:Name="comboBox" SelectedValue="{Binding ComboBoxValue}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Margin="128,169,0,0"/>
+        <Button Command ="{Binding AddReaktor2Command}"  Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="28,235,0,0"/>
+        <!-->"<Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Height="24" Margin="156,233,0,0" VerticalAlignment="Top" Width="75" Click="buttonCancel_Click"  SelectionChanged="comboBox_SelectionChanged"/>-->
+        <Label x:Name="labelGreskaID" Content="" HorizontalAlignment="Left" Margin="85,72,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label x:Name="labelGreskaName" Content="" HorizontalAlignment="Left" Height="24" Margin="85,131,0,0" VerticalAlignment="Top" Width="146"/>
+        <Label x:Name="labelGreskaCombo" Content="" HorizontalAlignment="Left" Margin="85,196,0,0" VerticalAlignment="Top" Height="24" Width="146"/>
+    </Grid>
+</Window>

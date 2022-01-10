@@ -1,0 +1,130 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row" *ngIf="!registrationSuccessful">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="page-header">
+          <h1>Register</h1>
+        </div>
+        <h6>Fields marked with "<mark>*</mark>" are required.</h6>
+        <form #f="ngForm" (ngSubmit)="register(f.value)">
+          <div class="form-group required">
+            <label for="username">Username</label>
+            <input 
+              required 
+              minlength="3"
+              maxlength="30"
+              pattern="[a-zA-Z0-9]*"
+              type="text" name="username" #username="ngModel" ngModel class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+              <div *ngIf="username.errors.required">Username is required.</div>
+              <div *ngIf="username.errors.minlength">Username needs to be at least 3 characters long.</div>
+              <div *ngIf="username.errors.maxlength">Username needs to be maximum of 30 characters long.</div>
+              <div *ngIf="username.errors.pattern">Username can contain only ASCII characters and numbers.</div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="password">Password</label>
+            <input 
+              required 
+              minlength="3"
+              maxlength="30"
+              pattern="[a-zA-Z0-9]*"
+              type="password" name="password" ngModel #password="ngModel" class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+              <div *ngIf="password.errors.required">Password is required.</div>
+              <div *ngIf="password.errors.minlength">Password needs to be at least 3 characters long.</div>
+              <div *ngIf="password.errors.maxlength">Password needs to be maximum of 30 characters long.</div>
+              <div *ngIf="password.errors.pattern">Password can contain only ASCII characters and numbers.</div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="name">Name</label>
+            <input 
+              required
+              minlength="3"
+              maxlength="30"
+              pattern="[a-zA-Z]*"
+              type="text" name="name" ngModel #name="ngModel" class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+              <div *ngIf="name.errors.required">Name is required.</div>
+              <div *ngIf="name.errors.minlength">Name needs to be at least 3 characters long.</div>
+              <div *ngIf="name.errors.maxlength">Name needs to be maximum of 30 characters long.</div>
+              <div *ngIf="name.errors.pattern">Name can contain only ASCII characters.</div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="lastname">Lastname</label>
+            <input 
+              required 
+              minlength="3"
+              maxlength="30"
+              pattern="[a-zA-Z]*"
+              type="text" name="lastname" #lastname="ngModel" ngModel class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="lastname.touched && !lastname.valid">
+              <div *ngIf="lastname.errors.required">Lastname is required.</div>
+              <div *ngIf="lastname.errors.minlength">Lastname needs to be at least 3 characters long.</div>
+              <div *ngIf="lastname.errors.maxlength">Lastname needs to be maximum of 30 characters long.</div>
+              <div *ngIf="lastname.errors.pattern">Lastname can contain only ASCII characters.</div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="email">Email</label>
+            <input required email type="text" name="email" #email="ngModel" ngModel class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+              <div *ngIf="email.errors.required">Email is required.</div>
+              <div *ngIf="email.errors.email">Email is not valid.</div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="gender">Gender</label>
+            <select required name="gender" ngModel #gender="ngModel" class="form-control form-control-sm">
+              <option *ngFor="let gender of genders">{{ gender }}</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="gender.touched && !gender.valid">
+              <div *ngIf="gender.errors.required">Gender is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nationalIdentificationNumber">NIDN</label>
+            <input 
+              minlength="13"
+              maxlength="13"
+              pattern="[0-9]*"
+              type="text" name="nationalIdentificationNumber" ngModel #nationalIdentificationNumber="ngModel" class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="nationalIdentificationNumber.touched && !nationalIdentificationNumber.valid">
+              <div *ngIf="nationalIdentificationNumber.errors.minlength || nationalIdentificationNumber.errors.maxlength">National identification number needs to be 13 digits long.</div>
+              <div *ngIf="nationalIdentificationNumber.errors.pattern">National identification number can contain only numbers.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone number</label>
+            <input 
+              minlength="3"
+              maxlength="30"
+              pattern="[0-9]*"
+              type="text" name="phoneNumber" ngModel #phoneNumber="ngModel" class="form-control form-control-sm">
+            <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+              <div *ngIf="phoneNumber.errors.minlength">Phone number needs to be at least 6 digits long.</div>
+              <div *ngIf="phoneNumber.errors.maxlength">Phone number needs to be maximum of 10 digits long.</div>
+              <div *ngIf="phoneNumber.errors.pattern">Phone number can contain only numbers.</div>
+            </div>
+          </div>
+          <input class="btn btn-primary" type="submit" value="Register" [disabled]="!f.valid">
+        </form>      
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div *ngIf="registrationSuccessful">
+      <h2>You have successfully registered.</h2>
+      <ul>
+        <li>
+          <a [routerLink]="['/home']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

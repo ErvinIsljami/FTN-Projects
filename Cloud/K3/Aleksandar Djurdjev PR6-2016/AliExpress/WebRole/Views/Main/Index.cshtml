@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form action="/Main/Poruci">
+    <table>
+        <tr>
+            <th>Vrsta robe:</th>
+            <td><input type="text" name="vrsta" /></td>
+        </tr>
+        <tr>
+            <th>Kolicina:</th>
+            <td><input type="text" name="kolicina" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Poruci" /></td>
+        </tr>
+    </table>
+</form>
+
+<form action="/Main/Obavestenja">
+    <input type="submit" value="Obavestenja"/>
+</form>

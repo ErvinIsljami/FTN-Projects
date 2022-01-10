@@ -1,0 +1,24 @@
+/* .jumbotron{
+  background-image: url("../../../assets/taxi-background8.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 400px;
+  margin-bottom: 0px;
+  height: 100vh;
+} */
+
+.headline, .subheadline{
+  color:  white;
+}
+#intro {
+  height: 100vh;
+}
+
+#intro {
+  background: url("../../../assets/taxi-background7-min.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Obavestenja";
+}
+
+<h2>Obavestenja</h2>
+
+<table>
+    @foreach (String s in ViewBag.lista)
+    {
+        <tr>
+            <td>@s</td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Nazad", "Index")
+</div>

@@ -1,0 +1,108 @@
+﻿<Window x:Class="PZ3_NetworkService.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ3_NetworkService"
+        xmlns:viewmodels="clr-namespace:PZ3_NetworkService.ViewModel"
+        xmlns:views="clr-namespace:PZ3_NetworkService.View"
+        mc:Ignorable="d"
+        Title="Project 3" Height="675" Width="1050" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderThickness="1" BorderBrush="#FF007ACC">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:StartingScreenViewModel}">
+            <views:StartingScreen/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:NetworkDataViewModel}">
+            <views:NetworkData/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:NetworkViewViewModel}">
+            <views:NetworkView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:DataChartViewModel}">
+            <views:DataChart/>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding NavCommand}" CommandParameter="nview" Key="F1"/>
+        <KeyBinding Command="{Binding NavCommand}" CommandParameter="ndata" Key="F2"/>
+		<KeyBinding Command="{Binding NavCommand}" CommandParameter="dchart" Key="F3"/>
+	</Window.InputBindings>
+    
+    
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140"/>
+			<ColumnDefinition Width="140"/>
+			<ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="Gray" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Name="buttonNetworkView" ToolTip="Switch to Network View view [F1]" Content="Network View" Background="White" Width="140" Height="35" FontFamily="Segoe UI Light" FontSize="18" Command="{Binding NavCommand}" CommandParameter="nview">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding NvIsActive}" Value="True">
+                                    <Setter Property="Foreground" Value="LimeGreen" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Name="buttonNetworkData" ToolTip="Switch to Network Data view [F2]" Content="Network Data"  Background="White" Width="140" Height="35" FontFamily="Segoe UI Light" FontSize="18" Command="{Binding NavCommand}" CommandParameter="ndata">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="Black" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding NdIsActive}" Value="True">
+                                    <Setter Property="Foreground" Value="LimeGreen" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+				<Button Name="buttonDataChart" ToolTip="Switch to Data Chart view [F3]" Content="Data Chart"  Background="White" Width="140" Height="35" FontFamily="Segoe UI Light" FontSize="18" Command="{Binding NavCommand}"
+                          CommandParameter="dchart">
+					<Button.Style>
+						<Style TargetType="Button">
+							<Setter Property="Foreground" Value="Black" />
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding DcIsActive}" Value="True">
+									<Setter Property="Foreground" Value="LimeGreen" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Button.Style>
+				</Button>
+			</StackPanel>
+        </DockPanel>
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="3">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
+        <Button Name="closeAppButton" ToolTip="Closes the application." Command="{Binding ExitCommand}" Background="Transparent" BorderBrush="Black" VerticalContentAlignment="Center" Content="Exit" Grid.Column="5" HorizontalAlignment="Left" Margin="191,4,0,0" VerticalAlignment="Top" Width="48" Height="29" FontSize="18"/>
+
+    </Grid>
+</Window>

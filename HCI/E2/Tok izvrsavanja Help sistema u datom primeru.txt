@@ -1,0 +1,52 @@
+Tok izvrsavanja helpa za odredjeni textbox.
+
+- Krece se od HelpProvider klase i MainWindow-a.
+- Unutar MainWindow-a ukljucujemo namespace koji sadrzi HelpProvider klasu.
+- HelpProvider klasa ima DependencyProperty HelpKeyProperty (cije ime je "HelpKey")
+- Svaku kontrolu (npr. textbox-ovi, sam window, itd.) mozemo registrovati kod HelpProvider-a gde definisemo koji ce biti kljuc koji ce odgovarati toj kontroli i to se radi na ovaj nacin:
+	- Kao atribut podesavamo taj kljuc:
+		"namespace_iz_kog_izvlacimo_HelpProvider_klasu":HelpProvider.HelpKey="kljuc"
+		- u sustini ovde odredjujemo koju vrednost ce da ima HelpKey property odredjene kontrole
+		- primer:
+			<TextBox l:HelpProvider.HelpKey="Ime"/>
+				- gde je 'l' namespace iz kog izvlacimo HelpProvider klasu
+				- dakle ovo je isto kao kada bismo podesili Text property ovog textboxa na nesto
+				- prosto smo samo kreirali nas property
+- Pokretanje Help komande je napravljeno tako sto je iskoriscena ugradjena komanda koja reaguje na F1
+	- ovo je podeseno u MainWindow-u kroz:
+		<Window.CommandBindings>
+			<CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+		</Window.CommandBindings>
+		- ApplicationCommands.Help je zapravo ugradjena komanda koja se pokrece na F1 i izvrsava sta god
+		da je prosledjeno u Executed atributu
+- U MainWindow-u imamo definisanu tu funkciju koja ce se izvrsiti
+	private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+	{
+		// Izvucemo fokusiranu kontrolu
+		IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+		// Trebalo bi da je svaka kontrola DependencyObject
+		if (focusedControl is DependencyObject)
+		{
+			// Izvucemo onaj kljuc koji se definisali iznad koristeci HelpProvider:HelpKey
+			string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+			// Metoda ShowHelp ce prikazati HelpViewer window
+			HelpProvider.ShowHelp(str, this);
+		}
+	}
+- HelpViewer klasa izgleda ovako:
+        private JavaScriptControlHelper ch;
+        public HelpViewer(string key, MainWindow originator)
+        {
+            InitializeComponent();
+            string curDir = Directory.GetCurrentDirectory();
+            string path = String.Format("{0}/Help/{1}.htm", curDir, key);
+            if (!File.Exists(path))
+            {
+                key = "error";
+            }            
+            Uri u = new Uri(String.Format("file:///{0}/Help/{1}.htm", curDir, key));
+			// U ovom trenutku imamo html stranicu koja ce se prikazati pomocu WebBrowser kontrole
+            ch = new JavaScriptControlHelper(originator);
+            wbHelp.ObjectForScripting = ch;
+            wbHelp.Navigate(u);
+        }

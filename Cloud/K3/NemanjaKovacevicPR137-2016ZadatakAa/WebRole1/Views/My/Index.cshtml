@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="@Url.Action("Obavestenja", "My")">Obavestenja</a>
+
+@using (Html.BeginForm("Posalji", "My", FormMethod.Post))
+{
+    <label>Vrsta hrane : </label>
+    <input type="text" name="Vrsta" />
+    <br />
+    <label> Zeljena kolicina:</label>
+    <input type="text" name="Kolicina"/>
+    <br />
+    <input type="submit" value="Poruci"/>
+}

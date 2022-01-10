@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<ArrayOfGenerator xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Generator>
+    <Kod>GS-101</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>-30</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>243</Cena>
+    <Grupa>GR-01</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-102</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>3213</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>344</Cena>
+    <Grupa>GR-03</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-103</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>642</Cena>
+    <Grupa>GR-01</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-104</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>145</Cena>
+    <Grupa>GR-03</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-105</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>756</Cena>
+    <Grupa>GR-02</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-106</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>2084</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>234</Cena>
+    <Grupa>GR-01</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-107</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>867</Cena>
+    <Grupa>GR-01</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-108</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>235</Cena>
+    <Grupa>GR-03</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-109</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>967</Cena>
+    <Grupa>GR-03</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-110</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>645</Cena>
+    <Grupa>GR-02</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-111</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>475</Cena>
+    <Grupa>GR-02</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-112</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>567</Cena>
+    <Grupa>GR-02</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-113</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>300</Cena>
+    <Grupa>GR-03</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-114</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>REMOTE</TipKontrole>
+    <Cena>300</Cena>
+    <Grupa>GR-02</Grupa>
+    <MeasurementHistory />
+  </Generator>
+  <Generator>
+    <Kod>GS-115</Kod>
+    <Tip>SOLAR</Tip>
+    <TrenutnaAktivnaSnaga>5039</TrenutnaAktivnaSnaga>
+    <Min>5</Min>
+    <Max>10000</Max>
+    <TipKontrole>LOCAL</TipKontrole>
+    <Cena>300</Cena>
+    <Grupa>GR-01</Grupa>
+    <MeasurementHistory />
+  </Generator>
+</ArrayOfGenerator>

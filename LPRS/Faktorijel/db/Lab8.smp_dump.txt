@@ -1,0 +1,15 @@
+
+State Machine - |cpu_top|cu:iCU|currentState
+Name currentState.T10 currentState.T9 currentState.T8 currentState.T7 currentState.T6 currentState.T5 currentState.T4 currentState.T3 currentState.T2 currentState.T1 currentState.DONE currentState.START 
+currentState.START 0 0 0 0 0 0 0 0 0 0 0 0 
+currentState.DONE 0 0 0 0 0 0 0 0 0 0 1 1 
+currentState.T1 0 0 0 0 0 0 0 0 0 1 0 1 
+currentState.T2 0 0 0 0 0 0 0 0 1 0 0 1 
+currentState.T3 0 0 0 0 0 0 0 1 0 0 0 1 
+currentState.T4 0 0 0 0 0 0 1 0 0 0 0 1 
+currentState.T5 0 0 0 0 0 1 0 0 0 0 0 1 
+currentState.T6 0 0 0 0 1 0 0 0 0 0 0 1 
+currentState.T7 0 0 0 1 0 0 0 0 0 0 0 1 
+currentState.T8 0 0 1 0 0 0 0 0 0 0 0 1 
+currentState.T9 0 1 0 0 0 0 0 0 0 0 0 1 
+currentState.T10 1 0 0 0 0 0 0 0 0 0 0 1 

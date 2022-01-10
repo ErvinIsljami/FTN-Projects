@@ -1,0 +1,120 @@
+﻿<Window x:Class="STEFANSTUPAR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:STEFANSTUPAR"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="655" Width="955">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="50" Background="White">
+            <Menu.ItemsPanel >
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <Image Source="Images/MainIcon.jpg"/>
+
+            <MenuItem  Header="Dodaj lokal" FontSize="10"  Click="DodajLokal_Click" Foreground="HotPink" Height="30"  Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5" >
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Dodaj etiketu" FontSize="10"  Click="DodajEtiketu_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5">
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Dodaj tip" FontSize="10"  Click="DodajTip_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5">
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Pregled lokala" FontSize="10"  Click="PregledLokala_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5">
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Pregled etiketa" FontSize="10"  Click="PregledEtiketa_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5">
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Pregled tipova" FontSize="10"  Click="PregledTipova_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5" HorizontalAlignment="Center">
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Pomoć"  FontSize="10"  Click="Pomoc_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5" HorizontalAlignment="Center" >
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            
+
+            <MenuItem  Header="Sacuvaj"  FontSize="10"  Click="Sacuvaj_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5" HorizontalAlignment="Center" >
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <MenuItem  Header="Ucitaj"  FontSize="10"  Click="Ucitaj_Click" Foreground="HotPink" Height="30" Width="80" Background="white" BorderBrush="HotPink" Margin="5,5,5,5" HorizontalAlignment="Left" >
+                <MenuItem.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+
+            <!--<Image Source="Images/search.png" Height="33" Width="27"/>-->
+            
+        </Menu>
+
+        <Frame x:Name="Content" DockPanel.Dock="Bottom" NavigationUIVisibility="Hidden"/>
+        
+        
+        
+    </DockPanel>
+</Window>

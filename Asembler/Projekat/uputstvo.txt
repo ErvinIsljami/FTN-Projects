@@ -1,0 +1,32 @@
+
+Uputstvo za upotrebu skripta za automatsko testiranje
+#####################################################
+
+Kada se zadatak završi, može da se testira skriptom za automatsko testiranje.
+Skript je dat u fajlu: testiraj_pp.sh
+
+
+Pre pokretanja
+--------------
+Da bi skript mogao da se koristi, potrebni su sledeći programski paketi:
+    expect, gcc, sed
+Ako se izvršava na 64-bitnom sistemu, potrebna je i biblioteka gcc-multilib.
+
+Na Ubuntu distribuciji se sve može instalirati sa komandom:
+    sudo apt-get install expect gcc sed
+(treba dodati i gcc-multilib na kraj linije ako koristite 64-bitni sistem)
+
+
+
+Pokretanje testiranja
+---------------------
+Skript za testiranje se pokreće sa komandom:
+    bash testiraj_pp.sh ime_programa.S
+
+Nakon toga, pokrenuće se kompajliranje programa.
+Ako je kompajliranje bilo uspešno,  program će biti pokrenuti sa više testova i ispisaće se rezultati testa.
+
+Ukoliko vaš izlaz bude sadržavao znake koji ne pripadaju skupu ASCII znakova
+koji se mogu ispisati (kodovi 0x1-0x1f i 0x80-0xff), takvi znaci će se u ispisu
+pojaviti u obliku [0xN], gde je N heksadecimalni kod znaka.
+

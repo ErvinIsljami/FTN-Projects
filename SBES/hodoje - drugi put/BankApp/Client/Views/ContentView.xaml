@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Client.Views.ContentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.Views"
+			 xmlns:views="clr-namespace:Client.Views"
+			 xmlns:viewModels="clr-namespace:Client.ViewModels"
+             mc:Ignorable="d" 
+             Height="700" Width="1100">
+	<UserControl.Resources>
+		<!-- Custom Button Control Template Override-->
+		<ControlTemplate x:Key="CustomButtonBaseControlTemplate" TargetType="{x:Type ButtonBase}">
+			<Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+				<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+			</Border>
+			<ControlTemplate.Triggers>
+				<Trigger Property="Button.IsDefaulted" Value="True">
+					<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+				</Trigger>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background" TargetName="border" Value="#4B4B4B"/>
+					<Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+				</Trigger>
+				<Trigger Property="IsPressed" Value="True">
+					<Setter Property="Effect">
+						<Setter.Value>
+							<DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="Black"/>
+						</Setter.Value>
+					</Setter>
+				</Trigger>
+				<Trigger Property="IsEnabled" Value="False">
+					<Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+					<Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+					<Setter Property="Foreground" Value="#FF838383"/>
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+		<!-- End of Button override -->
+
+		<DataTemplate DataType="{x:Type viewModels:UserViewModel}">
+			<views:UserView/>
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid>
+		<ContentControl Content="{Binding CurrentContentViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+	</Grid>
+</UserControl>
+
+	

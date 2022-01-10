@@ -1,0 +1,32 @@
+10
+Pera Peric 1992
+Ervin Isljami 1995
+Andrej Poljakovic 1994
+Petar Varga 1997
+Aleksa Gligoric 1993
+Goran Pavicevic 1995
+Luka Bosanac 1997
+Igor Resman 1997
+Bogdan Kovacev 1998
+Andrej Simunovic 1999
+1 2 30
+2 4 40
+3 5 90
+1 3 40
+6 3 20
+5 8 40
+9 3 50
+7 4 60
+3 6 10
+3 10 2
+8 1 14
+5 4 9
+4 8 15
+1 5 19
+1 10 18
+10 2 5
+1 9 42
+7 3 13
+7 9 11
+6 2 13
+

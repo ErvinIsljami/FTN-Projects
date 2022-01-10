@@ -1,0 +1,3 @@
+--Pre ucitavanja/zadavanja Mape
+GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();
+GMapProvider.WebProxy.Credentials = CredentialCache.DefaultNetworkCredentials;

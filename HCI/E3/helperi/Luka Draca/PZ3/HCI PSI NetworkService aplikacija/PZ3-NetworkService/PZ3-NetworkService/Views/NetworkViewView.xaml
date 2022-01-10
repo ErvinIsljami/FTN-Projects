@@ -1,0 +1,392 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.NetworkViewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+             xmlns:VML="clr-namespace:PZ3_NetworkService.VML"
+             VML:ViewModelLocator.AutoHookedUpViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="654" d:DesignWidth="1009">
+    <Grid Background="#FF303030">
+        <Grid x:Name="MainCanvas" Width="800" Height="640" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" AllowDrop="True" Grid.Column="0" Grid.Row="0" Background="Gray" x:Name="canvas1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas1}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas1}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas1}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas1}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="0" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas1}"/>
+            </Canvas>
+
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Background="Gray" AllowDrop="True" x:Name="canvas2">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas2}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas2}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas2}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas2}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="1" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas2}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Background="Gray" AllowDrop="True" x:Name="canvas3">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas3}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas3}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas3}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas3}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="2" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas3}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Background="Gray" AllowDrop="True" x:Name="canvas4" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas4}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas4}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas4}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas4}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="3" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas4}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Background="Gray" AllowDrop="True" x:Name="canvas5" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas5}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas5}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas5}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas5}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="4" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas5}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Background="Gray" AllowDrop="True" x:Name="canvas6" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas6}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas6}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas6}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas6}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="5" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas6}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Background="Gray" AllowDrop="True" x:Name="canvas7" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas7}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas7}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas7}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas7}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="6" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas7}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Background="Gray" AllowDrop="True" x:Name="canvas8" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas8}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas8}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas8}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas8}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="7" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas8}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Background="Gray" AllowDrop="True" x:Name="canvas9" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas9}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas9}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas9}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas9}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="8" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas9}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Background="Gray" AllowDrop="True" x:Name="canvas10" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas10}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas10}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas10}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas10}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="9" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas10}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Background="Gray" AllowDrop="True" x:Name="canvas11" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas11}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas11}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas11}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas11}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="10" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas11}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3" Background="Gray" AllowDrop="True" x:Name="canvas12" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas12}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas12}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas12}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas12}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="11" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas12}"/>
+            </Canvas>
+
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" Background="Gray" AllowDrop="True" x:Name="canvas13" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas13}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas13}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas13}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas13}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="12" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas13}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Background="Gray" AllowDrop="True" x:Name="canvas14" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas14}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas14}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas14}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas14}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="13" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas14}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" Background="Gray" AllowDrop="True" x:Name="canvas15" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas15}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas15}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas15}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas15}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="14" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas15}"/>
+            </Canvas>
+
+            <Canvas Width="120" Height="120" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3" Background="Gray" AllowDrop="True" x:Name="canvas16" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding DCommand}" CommandParameter="{Binding ElementName=canvas16}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LCommand}" CommandParameter="{Binding ElementName=canvas16}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="DragOver">
+                        <i:InvokeCommandAction Command="{Binding DOCommand}" CommandParameter="{Binding ElementName=canvas16}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="DragLeave">
+                        <i:InvokeCommandAction Command="{Binding DLCommand}" CommandParameter="{Binding ElementName=canvas16}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border Width="120" Height="120" BorderThickness="4" />
+                <TextBlock Width="50" Foreground="Red" Height="20" HorizontalAlignment="Right" Canvas.Left="125" />
+                <Button TabIndex="15" Width="180" Height="20" Content="Remove" Foreground="White" FontSize="11" VerticalAlignment="Bottom" HorizontalAlignment="Center" Canvas.Left="-28" Canvas.Top="124"   Command="{Binding FreeCommand}" CommandParameter="{Binding ElementName=canvas16}"/>
+            </Canvas>
+
+        </Grid>
+
+        <ListView x:Name="MainListView" Width="200" Height="600" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" ItemsSource="{Binding Items,Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction Command="{Binding MLBUCommand}" CommandParameter="{Binding ElementName=MainListView}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SCCommand}" CommandParameter="{Binding ElementName=MainListView,Path=SelectedItem}"/>
+                </i:EventTrigger>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LLWCommand}" CommandParameter="{Binding ElementName=MainListView}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="{Binding Type.ImgUri}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</UserControl>

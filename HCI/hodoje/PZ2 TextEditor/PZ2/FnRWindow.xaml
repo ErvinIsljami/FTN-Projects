@@ -1,0 +1,16 @@
+﻿<Window x:Class="PZ2.FnRWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ2"
+        mc:Ignorable="d"
+        Title="Find &amp; Replace" Height="248" Width="291.333" Closing="FnRWindow_OnClosing">
+    <Grid>
+        <TextBox Name="FindTextBox" HorizontalAlignment="Left" Height="23" Margin="90,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" />
+        <TextBox Name="ReplaceTextBox" HorizontalAlignment="Left" Height="23" Margin="90,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
+        <Label Name="FindLabel" Content="Find what:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="80" Height="23"/>
+        <Label Name="ReplaceLabel" Content="Replace with:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="80" Height="28"/>
+        <Button Name="ReplaceButton" Content="Find &amp; Replace" HorizontalAlignment="Left" Margin="90,171,0,0" VerticalAlignment="Top" Width="175" Height="23" Click="FindAndReplaceButton_OnClick"/>
+    </Grid>
+</Window>

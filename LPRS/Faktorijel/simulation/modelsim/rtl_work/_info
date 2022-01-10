@@ -1,0 +1,299 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ervin/OneDrive/Desktop/lab8_postavka/simulation/modelsim
+Ealu
+Z1 w1580577542
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/alu.vhd
+Z7 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/alu.vhd
+l0
+L5
+VgkzA1n53<c]_oe`iJGP]>2
+!s100 HgSU2565AlP6i2[EPBe2:0
+Z8 OV;C;10.5b;63
+31
+Z9 !s110 1580578906
+!i10b 1
+Z10 !s108 1580578906.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/alu.vhd|
+Z12 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/alu.vhd|
+!i113 1
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 3 alu 0 22 gkzA1n53<c]_oe`iJGP]>2
+l23
+L17
+V;J3NU<@zGD^9AY>H^XN7i2
+!s100 SjPzUYWzVTN[Qf:iS;iHe2
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ecntreg
+Z15 w1579793350
+R2
+R3
+R4
+R5
+R0
+Z16 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/CntReg.vhd
+Z17 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/CntReg.vhd
+l0
+L5
+VdKZI<[KTHEj4;`N><_cQ52
+!s100 V3Nlen@T63M>NIY4a<If40
+R8
+31
+Z18 !s110 1580578907
+!i10b 1
+Z19 !s108 1580578907.000000
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/CntReg.vhd|
+Z21 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/CntReg.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 6 cntreg 0 22 dKZI<[KTHEj4;`N><_cQ52
+l18
+L14
+VVobOniPD0bY=1UThi]1lU0
+!s100 GQ;E0^j54J=0;lQl9eoCF2
+R8
+31
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Ecpu_top
+Z22 w1580384678
+R2
+R3
+R4
+R5
+R0
+Z23 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cpu_top.vhd
+Z24 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/cpu_top.vhd
+l0
+L5
+VzOS3MW^>Wj4T_gc[X;48e2
+!s100 CfNd7kLOcX33B3XCK6`NL1
+R8
+31
+R18
+!i10b 1
+R10
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cpu_top.vhd|
+Z26 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cpu_top.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 7 cpu_top 0 22 zOS3MW^>Wj4T_gc[X;48e2
+l105
+L14
+VI2V]KYhDGca1cQ`6;Q]`P2
+!s100 18GBnCjDMoNT[S@>7VPUC1
+R8
+31
+R18
+!i10b 1
+R10
+R25
+R26
+!i113 1
+R13
+R14
+Ecpu_top_tb
+Z27 w1579456845
+R4
+R5
+R0
+Z28 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/simulation/modelsim/cpu_top_tb.vhd
+Z29 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/simulation/modelsim/cpu_top_tb.vhd
+l0
+L4
+V]nJCC12JAGf85Ue0K:GYB2
+!s100 T:@fjDcVV?5KV<Kje?TbG1
+R8
+31
+R18
+!i10b 1
+R19
+Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/simulation/modelsim/cpu_top_tb.vhd|
+Z31 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/simulation/modelsim/cpu_top_tb.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 10 cpu_top_tb 0 22 ]nJCC12JAGf85Ue0K:GYB2
+l25
+L7
+V<[f]GhOg2SU^IjbdRXJjS2
+!s100 ]eOJJ4P3T`LKi;3i9MRAO2
+R8
+31
+R18
+!i10b 1
+R19
+R30
+R31
+!i113 1
+R13
+R14
+Ecu
+Z32 w1580384078
+R2
+R3
+R4
+R5
+R0
+Z33 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cu.vhd
+Z34 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/cu.vhd
+l0
+L5
+Vj7:`O0leG24b>3>V]X`DJ1
+!s100 c;gKA:m;l;m=OT?mNeV6A1
+R8
+31
+R9
+!i10b 1
+R10
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cu.vhd|
+Z36 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/cu.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R2
+R3
+R4
+R5
+DEx4 work 2 cu 0 22 j7:`O0leG24b>3>V]X`DJ1
+l24
+L19
+V^Q`J64dfb3JAzFIUaR<BU2
+!s100 FhU@7CNH3H=6=ch9cXO762
+R8
+31
+R9
+!i10b 1
+R10
+R35
+R36
+!i113 1
+R13
+R14
+Emux
+Z37 w1579452216
+R4
+R5
+R0
+Z38 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/mux.vhd
+Z39 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/mux.vhd
+l0
+L4
+VkUafVJJX1M3HhciI;WdNI1
+!s100 G6iW@0SQ50?DkMIM38mfU3
+R8
+31
+R9
+!i10b 1
+R10
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/mux.vhd|
+Z41 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/mux.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 3 mux 0 22 kUafVJJX1M3HhciI;WdNI1
+l22
+L20
+V=>?j6FVM1?<0ma@ln7?n:0
+!s100 dM3l8l^o;0MU]OCBG^Xbm0
+R8
+31
+R9
+!i10b 1
+R10
+R40
+R41
+!i113 1
+R13
+R14
+Ereg
+Z42 w1580577545
+R4
+R5
+R0
+Z43 8C:/Users/ervin/OneDrive/Desktop/lab8_postavka/reg.vhd
+Z44 FC:/Users/ervin/OneDrive/Desktop/lab8_postavka/reg.vhd
+l0
+L4
+V2;UVJ1dege>EInB?VUEg80
+!s100 i[A2zGN@o]m6=9JD:=iEH2
+R8
+31
+R9
+!i10b 1
+R10
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/ervin/OneDrive/Desktop/lab8_postavka/reg.vhd|
+Z46 !s107 C:/Users/ervin/OneDrive/Desktop/lab8_postavka/reg.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R4
+R5
+DEx4 work 3 reg 0 22 2;UVJ1dege>EInB?VUEg80
+l19
+L14
+VJ]g^PkRd?B8CoBM0iVP5c1
+!s100 6UoD3=e1E6b;0mcXJ9YU23
+R8
+31
+R9
+!i10b 1
+R10
+R45
+R46
+!i113 1
+R13
+R14

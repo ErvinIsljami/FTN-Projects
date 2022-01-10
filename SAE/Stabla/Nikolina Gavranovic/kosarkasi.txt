@@ -1,0 +1,7 @@
+6
+62 ervin isljami 400 20 10
+43 andrej poljakovic 300 50 30
+58 petar varga 200 32 43
+100 luka bosanac 100 10 14
+99 goran pavicevic 478 30 15
+31 petar maric 2010 672 40 30

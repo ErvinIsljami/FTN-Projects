@@ -1,0 +1,31 @@
+﻿<Window x:Class="AssetManagementSystem.Views.AlarmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AssetManagementSystem.Views"
+        mc:Ignorable="d"
+        Title="AlarmWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="data_grid" IsReadOnly="True" HorizontalAlignment="Left" Height="404" VerticalAlignment="Top" Width="816" ItemsSource="{Binding DevicesCollection}" AutoGenerateColumns="False" Margin="10,10,0,0">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsAlarm}" Value="true">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsAlarm}" Value="false">
+                            <Setter Property="Background" Value="White"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="300" Header="Name" Binding="{Binding DeviceName}" />
+                <DataGridTextColumn Width="300" Header="ControllerId" Binding="{Binding AMSLCId}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>

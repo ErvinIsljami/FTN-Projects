@@ -1,0 +1,32 @@
+﻿@using Microsoft.WindowsAzure.Storage.Queue
+@model IEnumerable<CloudQueueMessage>
+@{
+    ViewBag.Title = "Obavestenja";
+}
+
+<h2>Obavestenja</h2>
+<br/>
+<br/>
+<table>
+    <tr>
+        <th>
+            Vrsta hrane&nbsp;&nbsp;
+        </th>
+        <th>
+            Kolicina&nbsp;&nbsp;
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>&nbsp;@Html.DisplayFor(modelItem => item.AsString.Split('#')[0])</td>
+            <td>&nbsp;@Html.DisplayFor(modelItem => item.AsString.Split('#')[1])</td>
+        </tr>
+    }
+</table>
+<br/>
+<div>
+    @Html.ActionLink("Nazad", "Index")
+</div>
+

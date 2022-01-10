@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" [routerLink]="['/home']">Hoxi Taxi</a>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">Home</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button *ngIf="!isLoggedIn" class="btn btn-primary btn-lg" [routerLink]="['/login']">Login</button>
+        </li>
+        <li>
+          <button *ngIf="!isLoggedIn" class="btn btn-primary btn-lg" [routerLink]="['/register']">Register</button>
+        </li>
+        <li>
+          <button *ngIf="isLoggedIn" (click)="logout()" class="btn btn-primary btn-lg" [routerLink]="['/home']">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

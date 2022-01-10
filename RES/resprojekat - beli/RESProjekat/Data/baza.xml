@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Baza>
+  <Grupe>
+    <Grupa kod="GR-01" brojJedinica="0" trenutnaProizvodnja="52352" maxProizvodnja="532354" />
+    <Grupa kod="GR-02" brojJedinica="0" trenutnaProizvodnja="523052" maxProizvodnja="532354" />
+    <Grupa kod="GR-03" brojJedinica="0" trenutnaProizvodnja="52352" maxProizvodnja="532354" />
+  </Grupe>
+  <Generatori>
+    <Generator kod="TS-101" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="243" grupa="GR-01"/>
+    <Generator kod="TS-102" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="344" grupa="GR-03"/>
+    <Generator kod="TS-103" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="642" grupa="GR-01"/>
+    <Generator kod="TS-104" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="145" grupa="GR-03"/>
+    <Generator kod="TS-105" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="756" grupa="GR-02"/>
+    <Generator kod="TS-106" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="234" grupa="GR-01"/>
+    <Generator kod="TS-107" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="867" grupa="GR-01"/>
+    <Generator kod="TS-108" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="235" grupa="GR-03"/>
+    <Generator kod="TS-109" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="967" grupa="GR-03"/>
+    <Generator kod="TS-110" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="645" grupa="GR-02"/>
+    <Generator kod="TS-111" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="475" grupa="GR-02"/>
+    <Generator kod="TS-112" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="567" grupa="GR-02"/>
+    <Generator kod="TS-113" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="300" grupa="GR-03"/>
+    <Generator kod="TS-114" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="300" grupa="GR-02"/>
+    <Generator kod="TS-115" tipJedinice="SOLAR" trenutnaAktivnaSnaga="4234" minimalnaSnaga="5" maksimalnaSnaga="10000" tipKontrole="LOCAL" cena="300" grupa="GR-01"/>
+  </Generatori>
+</Baza>

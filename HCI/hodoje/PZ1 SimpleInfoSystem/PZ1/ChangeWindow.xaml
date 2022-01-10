@@ -1,0 +1,32 @@
+﻿<Window x:Class="PZ1.ChangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        mc:Ignorable="d"
+        Title="Change Model Data" ResizeMode="NoResize" Height="730" Width="468">
+    <Grid>
+        <Button x:Name="ButtonChange" Content="Change" HorizontalAlignment="Left" Margin="10,655,0,0" VerticalAlignment="Top" Width="200" Click="ButtonChange_OnClick" Height="25"/>
+        <Button x:Name="ButtonExit" Content="Exit" HorizontalAlignment="Left" Margin="241,655,0,0" VerticalAlignment="Top" Width="200" Click="ButtonExit_OnClick" Height="25"/>
+        <Label x:Name="VendorLabel" Content="Vendor:" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ModelLabel" Content="Model:" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.17,0.538"/>
+        <Label x:Name="OriginYearLabel" Content="Year of origin:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="DescriptionLabel" Content="Description:" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ImageLabel" Content="Image:" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.174,0.769"/>
+        <ComboBox x:Name="YearComboBox" HorizontalAlignment="Left" Margin="100,130,0,0" VerticalAlignment="Top" Width="98" Height="25"/>
+        <TextBox x:Name="VendorTextBox" HorizontalAlignment="Left" Height="23" Margin="100,27,0,0" IsReadOnly="True" TextWrapping="Wrap" Text="Автомат Калашникова" VerticalAlignment="Top" Width="341" Foreground="Gray"/>
+        <TextBox x:Name="ModelTextBox" HorizontalAlignment="Left" Height="23" Margin="100,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="144" Margin="100,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341"/>
+        <Rectangle Fill="#FF707070" HorizontalAlignment="Left" Height="9" Margin="10,632,0,0" VerticalAlignment="Top" Width="431"/>
+        <Label x:Name="ModelErrorLabel" Content="" HorizontalAlignment="Left" Margin="100,99,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.105,0.385" Width="341"/>
+        <Label x:Name="YearErrorLabel" Content="" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="341"/>
+        <Label x:Name="DescriptionErrorLabel" Content="" HorizontalAlignment="Left" Margin="100,320,0,0" VerticalAlignment="Top" Width="341"/>
+        <Border x:Name="ImageBorder" BorderThickness="1" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,357,0,0" Height="213" Width="341">
+            <Image x:Name="SelectedImage" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Margin="0,0,0,0" Height="213" Width="341"/>
+        </Border>
+        <Button x:Name="ButtonBrowse" Content="Browse..." HorizontalAlignment="Left" Margin="100,584,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="ButtonBrowse_OnClick"/>
+        <Label x:Name="BrowseImageErrorLabel" Content="" HorizontalAlignment="Left" Margin="228,583,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.579,-0.269" Width="213"/>
+        <TextBox x:Name="ImagePathContainerTextBox" Visibility="Collapsed" HorizontalAlignment="Left" Height="11" Margin="100,570,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" RenderTransformOrigin="0.5,0.5"></TextBox>
+    </Grid>
+</Window>

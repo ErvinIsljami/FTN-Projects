@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Obavestenja";
+}
+
+<h2>Obavestenja</h2>
+
+@foreach (var item in ViewBag.list)
+{
+    <br/>
+    <label>
+        @item
+    </label>
+}
+
+<a href="~/Ali/Index">Back</a>

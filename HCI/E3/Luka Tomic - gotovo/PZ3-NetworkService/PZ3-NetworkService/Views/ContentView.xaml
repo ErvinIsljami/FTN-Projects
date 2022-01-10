@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.ContentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+			 xmlns:vms="clr-namespace:PZ3_NetworkService.ViewModels"
+			 xmlns:v="clr-namespace:PZ3_NetworkService.Views"
+             Height="800" Width="630">
+	<UserControl.Resources>
+		<DataTemplate DataType="{x:Type vms:NetworkDataViewModel}">
+			<v:NetworkDataView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vms:NetworkViewViewModel}">
+			<v:NetworkViewView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vms:ChartViewModel}">
+			<v:ChartView/>
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid Panel.ZIndex="2" Grid.Row="0" Grid.Column="0" Background="Cyan">
+			<Button Content="Menu" FontWeight="Bold" BorderThickness="0" Background="Transparent" Foreground="DarkBlue" Command="{Binding NavbarToggleCommand}"/>
+			<Grid Opacity="0.8" Visibility="{Binding IsNavbarToggled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="Cyan" Margin="0,30,0,-30">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="97*"/>
+					<ColumnDefinition Width="218*"/>
+				</Grid.ColumnDefinitions>
+				<Grid Grid.ColumnSpan="2">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="300"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Button Height="30" FontWeight="Bold" Content="Home" Width="126" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Foreground="DarkBlue" Command="{Binding NavUiCommand}" CommandParameter="Home" Margin="0,0,0,271"/>
+					<Button Height="30" FontWeight="Bold" Content="Network Data" Width="126" HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" Foreground="DarkBlue" Command="{Binding NavUiCommand}" CommandParameter="NetworkData" Margin="126,0,0,270"/>
+					<Button Height="30" FontWeight="Bold" Content="Network View" Width="126" HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" Foreground="DarkBlue" Command="{Binding NavUiCommand}" CommandParameter="NetworkView" Margin="252,0,0,270"/>
+					<Button Height="30" FontWeight="Bold" Content="Chart" Width="126" HorizontalAlignment="Left"  BorderThickness="0" Background="Transparent" Foreground="DarkBlue" Command="{Binding NavUiCommand}" CommandParameter="Chart" Margin="378,0,0,270"/>
+					<Button Content="Undo" FontWeight="Bold" Foreground="DarkBlue" BorderThickness="0" Background="Transparent" Width="126" Command="{Binding UndoCommand}" HorizontalAlignment="Right" Margin="0,1,0,270"/>
+				</Grid>
+			</Grid>
+		</Grid>
+		<Grid Grid.Row="1" Grid.Column="0">
+			<ContentControl Content="{Binding CurrentViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		</Grid>
+	</Grid>
+</UserControl>

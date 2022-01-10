@@ -1,0 +1,787 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-md-4">
+      <h2>Pending rides</h2>
+      <div *ngIf="pendingRides.length === 0">
+        There are no pending rides yet.
+      </div>
+      <div *ngIf="pendingRides.length > 0" class="side-list">
+        <table class="table">
+          <tr *ngFor="let ride of pendingRides">
+            <td>
+              <!--Card-->
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-header-tabs">
+                    <button *ngIf="takenRide === undefined || takenRide === null" type="button" (click)="takeOverARide(ride.id)" class="btn btn-primary btn-sm float-right">
+                      Take over
+                    </button>
+                  </div>
+                </div>    
+                <!--Card content-->
+                <div class="card-block">
+                  <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{ride?.startLocation?.address?.streetName}} {{ride?.startLocation?.address?.streetNumber}}</h4>
+                    <!--Text-->
+                    <span class="card-text">Price: </span>
+                    <span class="card-text">{{ride?.price}} $</span>
+                    <br/>
+                    <span class="card-text">Street name: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetName}}</span>
+                    <br/>
+                    <span class="card-text">Street number: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetNumber}}</span>
+                    <br/>
+                    <span class="card-text">City: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.city}}</span>
+                    <br/>
+                    <span class="card-text">Postal code: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.postalCode}}</span>
+                    <br/>
+                    <span class="card-text">Longitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.longitude}}</span>
+                    <br/>
+                    <span class="card-text">Latitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.latitude}}</span>
+                    <br/>
+                    <span class="card-text">Car type: </span>
+                    <span class="card-text">{{ride?.carType}}</span>
+                    <br/>
+                    <span class="card-text">Timestamp: </span>
+                    <span class="card-text">{{ride?.timestamp}}</span>
+                    <br/>
+                    <span class="card-text">Status: </span>
+                    <span class="card-text">{{ride?.rideStatus}}</span>
+                    <br/>
+                    <span class="card-text">Customer:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.customer?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.customer?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Driver:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.driver?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.driver?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Dispatcher:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.dispatcher?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.dispatcher?.lastname}}</span>
+                    <!-- <div *ngFor="let comment of ride?.comments">
+                      <div>
+                        <span class="card-text">Rating: </span>
+                        <span>
+                          <a *ngFor="let rating of ratingList; let i = index">
+                            <i [ngStyle]="{'color': (i < comment?.rating) ? 'red' : 'grey'}" class="fa fa-star"></i>
+                          </a>
+                        </span>
+                        <br/>
+                        <form #addCommentForm="ngForm" (ngSubmit)="addComment(addCommentForm.value)">
+                          <input type="text" hidden name="rideId" [(ngModel)]="ride.id" #rideId="ngModel"/>
+                          <textarea readonly="true" type="text" class="form-control form-control-lg" placeholder="Leave a comment..." name="description" #description="ngModel" [ngModel]="comment?.description" (ngModelChange)="comment.description=$event"></textarea>
+                          <span *ngIf="comment?.description !== null" class="card-text float-left">{{comment?.user.username}} at {{comment?.timestamp?.toLocaleDateString()}} {{comment?.timestamp?.toLocaleTimeString()}}</span>
+                          <input *ngIf="comment?.user?.username === personalData?.username" type="submit" value="Comment" [disabled]="description.pristine" class="btn btn-primary btn-sm float-right"/>
+                        </form>
+                        <br/>
+                      </div>
+                      <br/>
+                    </div> -->
+                  </div>
+                </div>
+                <!--/.Card content-->
+              </div>
+              <!--/.Card-->
+            </td>
+          </tr>
+        </table>
+        <!-- </div> -->
+      </div>
+    </div>
+    <div class="col col-md-4">
+      <h2>Taken ride</h2>
+      <div *ngIf="takenRide === null || takenRide === undefined">
+        You haven't taken over a ride yet.
+      </div>
+      <div *ngIf="takenRide !== null && takenRide !== undefined">
+        <table class="table table-hover">
+          <tr>
+            <td>
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-header-tabs">
+                    <button type="button" class="btn btn-danger btn-sm float-right" data-toggle="modal" data-target="#failedRideModal">
+                      FAILED
+                    </button>
+                    <button type="button" class="btn btn-success btn-sm float-right" data-toggle="modal" data-target="#successfulRideModal">
+                      SUCCESSFUL
+                    </button>
+                    <div name="failedRide">
+                      <div class="modal fade" id="failedRideModal" tabindex="-1" role="dialog" aria-labelledby="failedRideModalTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="failedRideModalTitle">Failed ride</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="failedRideForm">
+                                <div class="form-group">
+                                  <h3>Starting location</h3>
+                                  <div>
+                                    <legend>Address</legend>
+                                    <label for="streetName">Street Name</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.streetName" type="text" name="streetName" class="form-control form-control-sm">
+                                    <label for="streetNumber">Street Number</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.streetNumber" type="text" name="streetNumber" class="form-control form-control-sm">
+                                    <label for="city">City</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.city" type="text" name="city" class="form-control form-control-sm">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.postalCode" type="text" name="postalCode" class="form-control form-control-sm">
+                                  </div>
+                                  <legend>Coordinates</legend>
+                                  <label for="longitude">Longitude</label>
+                                  <input disabled [value]="takenRide?.startLocation?.longitude" type="text" name="longitude" class="form-control form-control-sm">
+                                  <label for="latitude">Latitude</label>
+                                  <input disabled [value]="takenRide?.startLocation?.latitude" type="text" name="latitude" class="form-control form-control-sm">
+                                </div>
+                                <div class="form-group">
+                                  <h3>Car type</h3>
+                                  <select disabled [value]="takenRide?.carType" name="carType" class="custom-select form-control form-control-sm">
+                                    <option>PASSENGER</option>
+                                    <option>VAN</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <h3>Driver</h3>
+                                  <select disabled class="custom-select form-control form-control-sm">
+                                    <option [value]="personalData?.id">{{personalData?.name}} {{personalData?.lastname}}</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <span><mark>*</mark></span><textarea formControlName="commentDescription" type="text" class="form-control form-control-lg" placeholder="What went wrong?" name="description"></textarea>
+                                  <div class="alert alert-danger" *ngIf="flForm.commentDescription.touched && !commentDescription.username.valid">
+                                    <div *ngIf="flForm.commentDescription.errors.required">Your comment is required for failed ride.</div>
+                                  </div>
+                                  <div></div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button class="btn btn-primary" (click)="finishFailedRide()" [disabled]="!failedRideForm.valid" type="button">Finish</button>
+                                </div>    
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div name="successfulRide">
+                      <div class="modal fade" id="successfulRideModal" tabindex="-1" role="dialog" aria-labelledby="successfulRideModalTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="successfulRideModalTitle">Successful ride</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="successfulRideForm">
+                                <div class="form-group">
+                                  <h3>Starting location</h3>
+                                  <div>
+                                    <legend>Address</legend>
+                                    <label for="streetName">Street Name</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.streetName" type="text" name="streetName" class="form-control form-control-sm">
+                                    <label for="streetNumber">Street Number</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.streetNumber" type="text" name="streetNumber" class="form-control form-control-sm">
+                                    <label for="city">City</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.city" type="text" name="city" class="form-control form-control-sm">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input disabled [value]="takenRide?.startLocation?.address?.postalCode" type="text" name="postalCode" class="form-control form-control-sm">
+                                  </div>
+                                  <legend>Coordinates</legend>
+                                  <label for="longitude">Longitude</label>
+                                  <input disabled [value]="takenRide?.startLocation?.longitude" type="text" name="longitude" class="form-control form-control-sm">
+                                  <label for="latitude">Latitude</label>
+                                  <input disabled [value]="takenRide?.startLocation?.latitude" type="text" name="latitude" class="form-control form-control-sm">
+                                </div>
+                                <div class="form-group required" formGroupName="destinationLocation">
+                                  <h3>Destination location</h3>
+                                  <div>
+                                    <p>
+                                      <agm-map [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long" [zoom]="15" (mapClick)="ssRidePlaceMarker($event, successfulRideForm)">
+                                        <agm-marker [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long">                  
+                                        </agm-marker>
+                                      </agm-map>
+                                    </p>
+                                  </div>
+                                  <div formGroupName="address">
+                                    <legend>Address</legend>
+                                    <label for="streetName">Street Name</label>
+                                    <input required formControlName="streetName" type="text" name="streetName" class="form-control form-control-sm">
+                                    <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('address').get('streetName').touched && !ssForm.destinationLocation.get('address').get('streetName').valid">
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetName').errors.required">Street name is required.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetName').errors.minlength">Street name needs to be at least {{ssForm.destinationLocation.get('address').get('streetName').errors.minlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetName').errors.maxlength">Street name needs to be maximum of {{ssForm.destinationLocation.get('address').get('streetName').errors.maxlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetName').errors.pattern">Street name needs to contain only ASCII characters.</div>
+                                    </div>
+                                    <label for="streetNumber">Street Number</label>
+                                    <input required formControlName="streetNumber" type="text" name="streetNumber" class="form-control form-control-sm">
+                                    <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('address').get('streetNumber').touched && !ssForm.destinationLocation.get('address').get('streetNumber').valid">
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetNumber').errors.required">Street number is required.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetNumber').errors.minlength">Street number needs to be at least {{ssForm.destinationLocation.get('address').get('streetNumber').errors.minlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetNumber').errors.maxlength">Street number needs to be maximum of {{ssForm.destinationLocation.get('address').get('streetNumber').errors.maxlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('streetNumber').errors.pattern">Street number needs to contain only digits.</div>
+                                    </div>
+                                    <label for="city">City</label>
+                                    <input required formControlName="city" type="text" name="city" class="form-control form-control-sm">
+                                    <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('address').get('city').touched && !ssForm.destinationLocation.get('address').get('city').valid">
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('city').errors.required">City is required.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('city').errors.minlength">City needs to be at least {{ssForm.destinationLocation.get('address').get('city').errors.minlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('city').errors.maxlength">City needs to be maximum of {{ssForm.destinationLocation.get('address').get('city').errors.maxlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('city').errors.pattern">City needs to contain only ASCII characters.</div>
+                                    </div>
+                                    <label for="postalCode">Postal Code</label>
+                                    <input required formControlName="postalCode" type="text" name="postalCode" class="form-control form-control-sm">
+                                    <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('address').get('postalCode').touched && !ssForm.destinationLocation.get('address').get('postalCode').valid">
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('postalCode').errors.required">Postal code is required.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('postalCode').errors.minlength">Postal code needs to be at least {{ssForm.destinationLocation.get('address').get('postalCode').errors.minlength.requiredLength}} character long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('postalCode').errors.maxlength">Postal code needs to be maximum of {{ssForm.destinationLocation.get('address').get('postalCode').errors.maxlength.requiredLength}} characters long.</div>
+                                      <div *ngIf="ssForm.destinationLocation.get('address').get('postalCode').errors.pattern">Postal code needs to contain only ASCII characters and digits.</div>
+                                    </div>
+                                  </div>
+                                  <legend>Coordinates</legend>
+                                  <label for="longitude">Longitude</label>
+                                  <input formControlName="longitude" type="text" name="longitude" class="form-control form-control-sm">
+                                  <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('longitude').touched && !ssForm.destinationLocation.get('longitude').valid">
+                                    <div *ngIf="ssForm.destinationLocation.get('longitude').errors.required">Longitude is required.</div>
+                                    <div *ngIf="ssForm.destinationLocation.get('longitude').errors.isNotInLongitudeInterval">
+                                      Longitude needs to be in [{{ssForm.location.get('longitude').errors.isNotInLongitudeInterval.minLongitude}}, {{ssForm.location.get('longitude').errors.isNotInLongitudeInterval.maxLongitude}}] interval.
+                                    </div>
+                                  </div>
+                                  <label for="latitude">Latitude</label>
+                                  <input required formControlName="latitude" type="text" name="latitude" class="form-control form-control-sm">
+                                  <div class="alert alert-danger" *ngIf="ssForm.destinationLocation.get('latitude').touched && !ssForm.destinationLocation.get('latitude').valid">
+                                    <div *ngIf="ssForm.destinationLocation.get('latitude').errors.required">Latitude is required.</div>
+                                    <div *ngIf="ssForm.destinationLocation.get('latitude').errors.isNotInLatitudeInterval">
+                                        Latitude needs to be in [{{ssForm.destinationLocation.get('latitude').errors.isNotInLatitudeInterval.minLatitude}}, {{ssForm.destinationLocation.get('latitude').errors.isNotInLatitudeInterval.maxLatitude}}] interval.
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <h3>Car type</h3>
+                                  <select disabled [value]="takenRide?.carType" name="carType" class="custom-select form-control form-control-sm">
+                                    <option>PASSENGER</option>
+                                    <option>VAN</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <h3>Driver</h3>
+                                  <select disabled class="custom-select form-control form-control-sm">
+                                    <option [value]="personalData?.id">{{personalData?.name}} {{personalData?.lastname}}</option>
+                                  </select>
+                                </div>
+                                <div class="form-group required">
+                                  <label for="price">Price</label>
+                                  <input required formControlName="price" type="text" class="form-control form-control-sm">
+                                </div>
+                                <div class="form-group">
+                                  <span>[Optional]</span>
+                                  <textarea formControlName="commentDescription" type="text" class="form-control form-control-lg" placeholder="Leave a comment..." name="description"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button class="btn btn-primary" (click)="finishSuccessfulRide()" [disabled]="!successfulRideForm.valid" type="button">Finish</button>
+                                </div>    
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Card content-->
+                <div class="card-block">
+                  <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{takenRide?.startLocation?.address?.streetName}} {{takenRide?.startLocation?.address?.streetNumber}}</h4>
+                    <!--Text-->
+                    <span class="card-text">Price: </span>
+                    <span class="card-text">{{takenRide?.price}} $</span>
+                    <br/>
+                    <span class="card-text">Street name: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.address?.streetName}}</span>
+                    <br/>
+                    <span class="card-text">Street number: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.address?.streetNumber}}</span>
+                    <br/>
+                    <span class="card-text">City: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.address?.city}}</span>
+                    <br/>
+                    <span class="card-text">Postal code: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.address?.postalCode}}</span>
+                    <br/>
+                    <span class="card-text">Longitude: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.longitude}}</span>
+                    <br/>
+                    <span class="card-text">Latitude: </span>
+                    <span class="card-text">{{takenRide?.startLocation?.latitude}}</span>
+                    <br/>
+                    <span class="card-text">Car type: </span>
+                    <span class="card-text">{{takenRide?.carType}}</span>
+                    <br/>
+                    <span class="card-text">Timestamp: </span>
+                    <span class="card-text">{{takenRide?.timestamp}}</span>
+                    <br/>
+                    <span class="card-text">Status: </span>
+                    <span class="card-text">{{takenRide?.rideStatus}}</span>
+                    <br/>
+                    <span class="card-text">Customer:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{takenRide?.customer?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{takenRide?.customer?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{takenRide?.customer?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Driver:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{takenRide?.driver?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{takenRide?.driver?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{takenRide?.driver?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Dispatcher:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{takenRide?.dispatcher?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{takenRide?.dispatcher?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{takenRide?.dispatcher?.lastname}}</span>
+                  </div>
+                </div>
+                <!--/.Card content-->
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col col-md-4">
+      <div>
+        <h2 class="loc-btn">My location</h2>
+        <!-- <button class="loc-btn btn btn-sm btn-primary">Get my location</button> -->
+      </div>
+      <form [formGroup]="locationDataForm">
+        <div>
+          <p>
+            <agm-map [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long" [zoom]="15" (mapClick)="ldFormPlaceMarker($event, locationDataForm)">
+              <agm-marker [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long">                  
+              </agm-marker>
+            </agm-map>
+          </p>
+        </div>
+        <table class="table table-sm table-hover">
+          <tbody formGroupName="address">
+            <tr>
+              <td class="required">Street name:</td>
+              <td>
+                <div class="form-group">
+                  <input formControlName="streetName" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="ldForm.address.get('streetName').touched && !ldForm.address.get('streetName').valid">
+                    <div *ngIf="ldForm.address.get('streetName').errors.required">Street name is required.</div>
+                    <div *ngIf="ldForm.address.get('streetName').errors.minlength">Street name needs to be at least {{ldForm.address.get('streetName').errors.minlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('streetName').errors.maxlength">Street name needs to be maximum of {{ldForm.address.get('streetName').errors.maxlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('streetName').errors.pattern">Street name needs to contain only ASCII characters.</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Street number:</td>
+              <td>
+                <div class="form-group">
+                  <input formControlName="streetNumber" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="ldForm.address.get('streetNumber').touched && !ldForm.address.get('streetNumber').valid">
+                    <div *ngIf="ldForm.address.get('streetNumber').errors.required">Street number is required.</div>
+                    <div *ngIf="ldForm.address.get('streetNumber').errors.minlength">Street number needs to be at least {{ldForm.address.get('streetNumber').errors.minlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('streetNumber').errors.maxlength">Street number needs to be maximum of {{ldForm.address.get('streetNumber').errors.maxlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('streetNumber').errors.pattern">Street number needs to contain only digits.</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td>
+                <div class="form-group">
+                  <input formControlName="city" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="ldForm.address.get('city').touched && !ldForm.address.get('city').valid">
+                    <div *ngIf="ldForm.address.get('city').errors.required">City is required.</div>
+                    <div *ngIf="ldForm.address.get('city').errors.minlength">City needs to be at least {{ldForm.address.get('city').errors.minlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('city').errors.maxlength">City needs to be maximum of {{ldForm.address.get('city').errors.maxlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('city').errors.pattern">City needs to contain only ASCII characters.</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Postal code:</td>
+              <td>
+                <div class="form-group">
+                  <input formControlName="postalCode" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="ldForm.address.get('postalCode').touched && !ldForm.address.get('postalCode').valid">
+                    <div *ngIf="ldForm.address.get('postalCode').errors.required">Postal code is required.</div>
+                    <div *ngIf="ldForm.address.get('postalCode').errors.minlength">Postal code needs to be at least {{ldForm.address.get('postalCode').errors.minlength.requiredLength}} character long.</div>
+                    <div *ngIf="ldForm.address.get('postalCode').errors.maxlength">Postal code needs to be maximum of {{ldForm.address.get('postalCode').errors.maxlength.requiredLength}} characters long.</div>
+                    <div *ngIf="ldForm.address.get('postalCode').errors.pattern">Postal code needs to contain only ASCII characters and digits.</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tr>
+            <td>Longitude:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="longitude" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="ldForm.longitude.touched && !ldForm.longitude.valid">
+                  <div *ngIf="ldForm.longitude.errors.required">Longitude is required.</div>
+                  <div *ngIf="ldForm.longitude.errors.isNotInLongitudeInterval">
+                    Longitude needs to be in [{{ldForm.longitude.errors.isNotInLongitudeInterval.minLongitude}}, {{ldForm.longitude.errors.isNotInLongitudeInterval.maxLongitude}}] interval.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Latitude:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="latitude" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="ldForm.latitude.touched && !ldForm.latitude.valid">
+                  <div *ngIf="ldForm.latitude.errors.required">Latitude is required.</div>
+                  <div *ngIf="ldForm.latitude.errors.isNotInLatitudeInterval">
+                      Latitude needs to be in [{{ldForm.latitude.errors.isNotInLatitudeInterval.minLatitude}}, {{ldForm.latitude.errors.isNotInLatitudeInterval.maxLatitude}}] interval.
+                    </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <button (click)="changeLocationData()" [hidden]="!locationDataForm.dirty && locationDataForm.valid" class="btn btn-primary" type="submit" [disabled]="!locationDataForm.valid">Save changes</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-4">
+      <h2>My car data</h2>
+      <form [formGroup]="carDataForm">
+        <table class="table table-sm table-hover">
+          <tr>
+            <td>Registration number:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="registrationNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="cdForm.registrationNumber.touched && !cdForm.registrationNumber.valid">
+                  <div *ngIf="cdForm.registrationNumber.errors.required">Registration number is required.</div>
+                  <div *ngIf="cdForm.registrationNumber.errors.pattern">Registration number can contain only characters and digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Taxi number:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="taxiNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="cdForm.taxiNumber.touched && !cdForm.taxiNumber.valid">
+                  <div *ngIf="cdForm.taxiNumber.errors.required">Taxi number is required.</div>
+                  <div *ngIf="cdForm.taxiNumber.errors.isNotInTaxiNumberInterval">
+                    Taxi number needs to be in [{{cdForm.taxiNumber.errors.isNotInTaxiNumberInterval.minTaxiNumber}}, {{cdForm.taxiNumber.errors.isNotInTaxiNumberInterval.maxTaxiNumber}}] interval.
+                  </div>
+                  <div *ngIf="cdForm.taxiNumber.errors.pattern">Taxi number needs to contain only digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Year of manufactoring:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="yearOfManufactoring" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="cdForm.yearOfManufactoring.touched && !cdForm.yearOfManufactoring.valid">
+                  <div *ngIf="cdForm.yearOfManufactoring.errors.required">Year of manufactoring is required.</div>
+                  <div *ngIf="cdForm.yearOfManufactoring.errors.isNotInYearOfManufactoringInterval">
+                    Year of manufactoring needs to be in [{{cdForm.yearOfManufactoring.errors.isNotInYearOfManufactoringInterval.minYearOfManufactoring}}, {{cdForm.yearOfManufactoring.errors.isNotInYearOfManufactoringInterval.minYearOfManufactoring}}] interval.
+                  </div>
+                  <div *ngIf="cdForm.yearOfManufactoring.errors.pattern">Year of manufactoring needs to contain only numbers.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td>
+              <div class="form-group">
+                <select formControlName="carType" class="form-control form-control-sm">
+                  <option selected>{{ personalData?.car?.carType }}</option>
+                  <option *ngIf="personalData?.car?.carType === 'PASSENGER'">VAN</option>
+                  <option *ngIf="personalData?.car?.carType === 'VAN'">PASSENGER</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="cdForm.carType.touched && !cdForm.carType.valid">
+                  <div *ngIf="cdForm.carType.errors.required">Car type is required.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <button (click)="changeCarData()" [hidden]="!carDataForm.dirty && carDataForm.valid" class="btn btn-primary" type="submit" [disabled]="!carDataForm.valid">Save changes</button>
+      </form>
+    </div>
+    <div class="col col-md-4">
+      <h2>My personal data</h2>
+      <form [formGroup]="personalDataForm">
+        <table class="table table-sm table-hover">
+          <tr>
+            <td>Username:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="username" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.username.touched && !pdForm.username.valid">
+                  <div *ngIf="pdForm.username.errors.required">Username is required.</div>
+                  <div *ngIf="pdForm.username.errors.minlength">Username needs to be at least {{pdForm.username.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.username.errors.maxlength">Username needs to be maximum of {{pdForm.username.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.username.errors.pattern">Username can contain only ASCII characters and digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="password" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.password.touched && !pdForm.password.valid">
+                  <div *ngIf="pdForm.password.errors.required">Password is required.</div>
+                  <div *ngIf="pdForm.password.errors.minlength">Password needs to be at least {{pdForm.password.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.password.errors.maxlength">Password needs to be maximum of {{pdForm.password.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.password.errors.pattern">Password can contain only ASCII characters and digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="name" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.name.touched && !pdForm.name.valid">
+                  <div *ngIf="pdForm.name.errors.required">Name is required.</div>
+                  <div *ngIf="pdForm.name.errors.minlength">Name needs to be at least {{pdForm.name.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.name.errors.maxlength">Name needs to be maximum of {{pdForm.name.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.name.errors.pattern">Name can contain only ASCII characters.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Lastname:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="lastname" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.lastname.touched && !pdForm.lastname.valid">
+                  <div *ngIf="pdForm.lastname.errors.required">Lastname is required.</div>
+                  <div *ngIf="pdForm.lastname.errors.minlength">Lastname needs to be at least {{pdForm.lastname.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.lastname.errors.maxlength">Lastname needs to be maximum of {{pdForm.lastname.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.lastname.errors.pattern">Lastname can contain only ASCII characters.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="email" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.email.touched && !pdForm.email.valid">
+                  <div *ngIf="pdForm.email.errors.required">Email is required.</div>
+                  <div *ngIf="pdForm.email.errors.email">Email is not valid.</div>
+                  <div *ngIf="pdForm.email.errors.maxlength">Email can be a maximum of {{pdForm.email.errors.maxlength.requiredLength}} characters long.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>
+              <div class="form-group">
+                <select formControlName="gender" class="custom-select form-control form-control-sm">
+                  <option>MALE</option>
+                  <option>FEMALE</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="pdForm.gender.touched && !pdForm.gender.valid">
+                  <div *ngIf="pdForm.gender.errors.required">Gender is required.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>NIDN:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="nationalIdentificationNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.nationalIdentificationNumber.touched && !pdForm.nationalIdentificationNumber.valid">
+                  <div *ngIf="pdForm.nationalIdentificationNumber.errors.minlength || pdForm.nationalIdentificationNumber.errors.maxlength">National identification number needs to be {{pdForm.nationalIdentificationNumber.errors.minlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.nationalIdentificationNumber.errors.pattern">National identification number can contain only digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Phone number:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="phoneNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.phoneNumber.touched && !pdForm.phoneNumber.valid">
+                  <div *ngIf="pdForm.phoneNumber.errors.minlength">Phone number needs to be at least {{pdForm.phoneNumber.errors.minlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.phoneNumber.errors.maxlength">Phone number needs to be maximum of {{pdForm.phoneNumber.errors.maxlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.phoneNumber.errors.pattern">Phone number can contain only digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <button [hidden]="!personalDataForm.dirty && personalDataForm.valid" class="btn btn-primary" type="submit" [disabled]="!personalDataForm.valid" (click)="changeMyData()">Save changes</button>  
+      </form>
+    </div>
+    <div class="col col-md-4">
+      <h2>My rides</h2>
+      <div *ngIf="driverRides.length === 0">
+        You haven't took any rides yet.
+      </div>
+      <div *ngIf="driverRides.length > 0" class="side-list">
+        <table class="table">
+          <tr *ngFor="let ride of driverRides">
+            <td>
+              <!--Card-->
+              <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                  <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{ride?.startLocation?.address?.streetName}} {{ride?.startLocation?.address?.streetNumber}}</h4>
+                    <!--Text-->
+                    <span class="card-text">Price: </span>
+                    <span class="card-text">{{ride?.price}} $</span>
+                    <br/>
+                    <span class="card-text">Street name: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetName}}</span>
+                    <br/>
+                    <span class="card-text">Street number: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetNumber}}</span>
+                    <br/>
+                    <span class="card-text">City: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.city}}</span>
+                    <br/>
+                    <span class="card-text">Postal code: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.postalCode}}</span>
+                    <br/>
+                    <span class="card-text">Longitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.longitude}}</span>
+                    <br/>
+                    <span class="card-text">Latitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.latitude}}</span>
+                    <br/>
+                    <span class="card-text">Car type: </span>
+                    <span class="card-text">{{ride?.carType}}</span>
+                    <br/>
+                    <span class="card-text">Timestamp: </span>
+                    <span class="card-text">{{ride?.timestamp}}</span>
+                    <br/>
+                    <span class="card-text">Status: </span>
+                    <span class="card-text">{{ride?.rideStatus}}</span>
+                    <br/>
+                    <span class="card-text">Customer:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.customer?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.customer?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.customer?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Driver:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.driver?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.driver?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.driver?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Dispatcher:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.dispatcher?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.dispatcher?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.dispatcher?.lastname}}</span>
+                    <div *ngIf="ride?.comments.length > 0">
+                      <div *ngFor="let comment of ride?.comments">
+                        <div>
+                          <br/>
+                          <span class="card-text">Rating: </span>
+                          <span>
+                              <a *ngFor="let rating of ratingList; let i = index" [ngClass]="{'no-hover': comment?.userId !== personalData?.id}" (click)="comment?.userId === personalData?.id ? rate(ride.id, i) : false">
+                                <i [ngStyle]="{'color': (i < comment?.rating) ? 'red' : 'grey'}" class="fa fa-star"></i>
+                              </a>
+                          </span>
+                          <textarea readonly="true" type="text" class="form-control form-control-lg" [value]="comment?.description"></textarea>
+                          <span *ngIf="comment?.description !== null" class="card-text float-left">{{comment?.user?.username}} at {{comment?.timestamp?.toLocaleDateString()}} {{comment?.timestamp?.toLocaleTimeString()}}</span>
+                          <br/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/.Card content-->
+              </div>
+              <!--/.Card-->
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

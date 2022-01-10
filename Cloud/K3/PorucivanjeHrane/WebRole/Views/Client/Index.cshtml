@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sluzba za porucivanje hrane</h2>
+
+
+<form action="/Client/Porucivanje">
+    <label>Vrsta hrane:</label>
+    <input type="text" name="hrana" />
+    <br/>
+    <br/>
+    <label>Kolicina:</label>
+    <input type="text" name="kolicina" />
+    <br/>
+    <input type="submit" value="Poruci" />
+</form>
+<br/>
+<form action="/Client/Obavestenja">
+    <input type="submit" value="Obavestenja"/>
+</form>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="PZ3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <StackPanel Background="DarkGray" DockPanel.Dock="Top">
+            <Button Content="Load Grid" Margin="5,5,0,0" HorizontalAlignment="Left" Height="30" Width="100" Foreground="White" Background="DarkGreen" Click="LoadGrid_Handler"/>
+            <Label Foreground="DarkGreen" Content="Grid Zoom (0% - 500%)"/>
+            <Slider x:Name="CanvasZoomSlider" Minimum="0.5" Maximum="5" Value="0.8"/>
+            <Canvas x:Name="LegendCanvas" Height="30">
+                <Label Content="LEGEND:" Foreground="White"/>
+                <Label Content="Substation:" Foreground="White" Canvas.Left="70"/>
+                <Ellipse Fill="Green" Height="10" Width="10" Canvas.Left="140" Canvas.Top="10"/>
+                <Label Content="Node:" Foreground="White" Canvas.Left="170"/>
+                <Ellipse Fill="Red" Height="10" Width="10" Canvas.Left="215" Canvas.Top="10"/>
+                <Label Content="Switch:" Foreground="White" Canvas.Left="245"/>
+                <Ellipse Fill="Black" Height="10" Width="10" Canvas.Left="300" Canvas.Top="10"/>
+            </Canvas>
+        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,50,0,0">
+            <Canvas x:Name="GridCanvas" Height="700" Width="700">
+                <Canvas.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding ElementName=CanvasZoomSlider, Path=Value}"
+                                    ScaleY="{Binding ElementName=CanvasZoomSlider, Path=Value}"/>
+                </Canvas.LayoutTransform>
+            </Canvas>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

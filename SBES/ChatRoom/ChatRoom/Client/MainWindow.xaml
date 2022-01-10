@@ -1,0 +1,29 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="ChatRoom" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF444746" Offset="1"/>
+                <GradientStop Color="#FFD5F2EE"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Name="Label" Content="" HorizontalAlignment="Left" Height="50" Margin="15,5,0,0" VerticalAlignment="Top" Width="244" FontSize="24"/>
+        <Button Content="Send" IsDefault="True" Name="ButtonSend" HorizontalAlignment="Left" FontSize="24" Height="50" Margin="670,340,0,0" VerticalAlignment="Top" Width="94" Click="ButtonSend_Click"/>
+        <TextBlock Name="TextBlock" HorizontalAlignment="Left" Height="270" Margin="21,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="740">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBox  Name="TextBox" HorizontalAlignment="Left" Height="50" Margin="20,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="640"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+﻿<Window x:Class="HCI_MapaManifestacijaGrada.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_MapaManifestacijaGrada"
+		xmlns:models="clr-namespace:HCI_MapaManifestacijaGrada.Model"
+		xmlns:hModels="clr-namespace:HCI_MapaManifestacijaGrada.HelperModels"
+		xmlns:conv="clr-namespace:HCI_MapaManifestacijaGrada.Converters"
+        mc:Ignorable="d"
+        MaxHeight="720" MaxWidth="1024"
+        Title="Glavni prozor" Height="720" Width="1024" WindowStartupLocation="CenterScreen" Background="LightBlue">
+	<Window.Resources>
+		<conv:ImageConverter x:Key="ImageConverter"/>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="22*"/>
+			<RowDefinition Height="323*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="250"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<ToolBarTray Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1024" Margin="0,0,-8,0">
+			<ToolBar x:Name="toolBar" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="1024" Margin="0,0,-1000,-27" RenderTransformOrigin="0.497,0.675">
+				<Button x:Name="btnManifestationTypes"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="40" Margin="0,0,0,-5" Click="BtnManifestationTypes_Click"  ToolTip="Tip manifestacije">
+					<StackPanel>
+						<Image Source="../Resources/type.png" Height="33" Width="40"/>
+					</StackPanel>
+				</Button>
+				<Button x:Name="btnManifestations"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="40" Margin="0,0,0,-5" Click="BtnManifestations_Click" ToolTip="Manifestacija">
+					<StackPanel>
+						<Image Source="../Resources/manifestation.png" Height="33" Width="40"/>
+					</StackPanel>
+				</Button>
+				<Button x:Name="btnTag"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="40" Margin="0,0,0,-5" Click="BtnTag_Click"  ToolTip="Etiketa manifestacije">
+					<StackPanel>
+						<Image Source="../Resources/hashtag.png" Height="33" Width="40"/>
+					</StackPanel>
+				</Button>
+				<Button x:Name="btnMap" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="40" Margin="0,0,0,-5" Click="BtnMap_Click" ToolTip="Mapa">
+					<StackPanel>
+						<Image Source="/Resources/map.png" Height="33" Width="40"/>
+					</StackPanel>
+				</Button>
+				<Button x:Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="40" Margin="0,0,0,-5" Click="BtnHelp_Click" ToolTip="Pomoć"  >
+					<StackPanel>
+						<Image Source="/Resources/help.png" Height="33" Width="40"/>
+					</StackPanel>
+				</Button>
+				<Label Content="Ukoliko vam je potreban tutorijal --->" Height="37" FontSize="20" Margin="0,0,0,-2" VerticalAlignment="Top" Width="350"/>
+				<Button x:Name="btnTutorial" Content="TUTORIJAL" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Top" Width="130" Height="40"  Click="BtnTutorial_Click" Margin="0,0,0,-5" />
+			</ToolBar>
+		</ToolBarTray>
+		<Canvas Grid.Row="1" Grid.ColumnSpan="2">
+			<Canvas.Background>
+				<ImageBrush ImageSource="../Resources/welcome.jpg"/>
+			</Canvas.Background>
+		</Canvas>
+	</Grid>
+</Window>

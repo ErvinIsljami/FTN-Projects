@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ArrayOfAccount xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Account>
+    <User>test</User>
+    <Money>5000</Money>
+    <IsCreditAllowed>false</IsCreditAllowed>
+    <CreditAmount>0</CreditAmount>
+  </Account>
+  <Account>
+    <User>BankUser</User>
+    <Money>2080000</Money>
+    <IsCreditAllowed>true</IsCreditAllowed>
+    <CreditAmount>1000000</CreditAmount>
+  </Account>
+  <Account>
+    <User>NoviUser</User>
+    <Money>0</Money>
+    <IsCreditAllowed>false</IsCreditAllowed>
+    <CreditAmount>0</CreditAmount>
+  </Account>
+  <Account>
+    <User>Novi Korisnik2</User>
+    <Money>0</Money>
+    <IsCreditAllowed>false</IsCreditAllowed>
+    <CreditAmount>0</CreditAmount>
+  </Account>
+  <Account>
+    <User>ervin</User>
+    <Money>0</Money>
+    <IsCreditAllowed>false</IsCreditAllowed>
+    <CreditAmount>0</CreditAmount>
+  </Account>
+</ArrayOfAccount>

@@ -1,0 +1,131 @@
+﻿<Window x:Class="SystemController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemController"
+        mc:Ignorable="d"
+        Title="System Controller" Height="480" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Grid Background="#383A41">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+			<ColumnDefinition Width="250"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<ListView Name="LcListView"
+				  ScrollViewer.CanContentScroll="False" 
+				  Grid.Row="0" 
+				  Grid.Column="1" 
+				  BorderThickness="2 0 0 0" 
+				  BorderBrush="#232323" 
+				  ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+				  Padding="-3,0,0,0" 
+				  Height="Auto" 
+				  Background="#383A41" 
+				  SelectionChanged="LkSelect_Click">
+			<ListView.ItemContainerStyle>
+				<Style TargetType="ListViewItem">
+					<Setter Property="HorizontalContentAlignment" Value="Center"/>
+					<Setter Property="Height" Value="80"/>
+					<Setter Property="Foreground" Value="White"/>
+					<Style.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsSelected" Value="true" />
+								<Condition Property="Selector.IsSelectionActive" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter Property="Background" Value="#333333"/>
+							<Setter Property="BorderThickness" Value="0"/>
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="True"></Condition>
+							</MultiTrigger.Conditions>
+							<Setter Property="Background" Value="#4B4B4B"/>
+							<Setter Property="BorderThickness" Value="0"/>
+						</MultiTrigger>
+					</Style.Triggers>
+				</Style>
+			</ListView.ItemContainerStyle>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Header="LCs" DisplayMemberBinding="{Binding Guid}" Width="251">
+						<GridViewColumn.HeaderContainerStyle>
+							<Style TargetType="{x:Type GridViewColumnHeader}">
+								<Setter Property="IsHitTestVisible" Value="False"/>
+								<Setter Property="BorderThickness" Value="3"/>
+								<Setter Property="BorderBrush" Value="#232323"/>
+								<Setter Property="Margin" Value="0,-1,0,0"/>
+								<Setter Property="Height" Value="50"/>
+								<Setter Property="FontSize" Value="20"/>
+								<Setter Property="Background" Value="#2E2E2E"/>
+								<Setter Property="Foreground" Value="ForestGreen"/>
+							</Style>
+						</GridViewColumn.HeaderContainerStyle>
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Grid Grid.Row="0" Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="366*"></RowDefinition>
+				<RowDefinition Height="85*"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<DataGrid Grid.Row="0" Grid.Column="0" Foreground="ForestGreen" Background="#333333" x:Name="dataGrid"
+                  CanUserAddRows="false"
+				  CanUserDeleteRows="False"
+				  SelectionMode="Single"
+				  CanUserResizeColumns="False"
+                  IsReadOnly="true"
+                  AutoGenerateColumns="False"
+				  HeadersVisibility="Column"
+				  Margin="10,10,12,10"
+				  BorderThickness="0">
+				<DataGrid.Resources>
+					<Style TargetType="{x:Type DataGridColumnHeader}">
+						<Setter Property="Background" Value="#2E2E2E"/>
+						<Setter Property="HorizontalContentAlignment" Value="Center"/>
+					</Style>
+					<Style TargetType="DataGridRow">
+						<Setter Property="Background" Value="#383A41"/>
+						<Setter Property="Foreground" Value="ForestGreen"/>
+					</Style>
+					<Style TargetType="DataGridCell">
+						<Style.Setters>
+							<Setter Property="TextBlock.TextAlignment" Value="Center" />
+						</Style.Setters>
+					</Style>
+				</DataGrid.Resources>
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Generator Id" Width="*" Binding="{Binding Id}"/>
+					<DataGridTextColumn Header="Unit Type" Width="*" Binding="{Binding UnitType}"/>
+					<DataGridTextColumn Header="Current Real Power" Width="*" Binding="{Binding CurrentActivePower}"/>
+					<DataGridTextColumn Header="Min Power" Width="*" Binding="{Binding MinPower}"/>
+					<DataGridTextColumn Header="Max Power" Width="*" Binding="{Binding MaxPower}"/>
+					<DataGridTextColumn Header="Control Type" Width="*" Binding="{Binding ControlType}"/>
+					<DataGridTextColumn Header="Work Price" Width="*" Binding="{Binding WorkPrice}"/>
+				</DataGrid.Columns>
+			</DataGrid>
+			<Grid Grid.Row="1" Grid.Column="0" Background="#666666">
+				<Grid.RowDefinitions>
+					<RowDefinition></RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid Grid.Row="0" Grid.Column="0">
+					<Label Grid.Row="0" Grid.Column="0" Foreground="White" Height="35" FontSize="14" Content="Enter minimum expected power generation:" Margin="10,8,-10,47"/>
+					<TextBox Name="ExpectedPowerGenerationTb" Grid.Row="0" Grid.Column="0" Height="25" FontSize="14" TextWrapping="Wrap" Margin="294,10,105,50"/>
+					<Button Grid.Row="0" Grid.Column="0" BorderBrush="#232323" BorderThickness="1 1 1 1" Background="#2E2E2E" VerticalAlignment="Top" Foreground="ForestGreen" FontSize="14" Content="Set" Click="SetExpectedPowerGeneration_Click" Height="25" Margin="644,10,10,0" />
+					<Label Grid.Row="0" Grid.Column="0" Foreground="White" Height="35" FontSize="14" Content="Generate Forecast:" Margin="10,35,-10,15"></Label>
+					<Button Grid.Row="0" Grid.Column="0" BorderBrush="#232323" BorderThickness="1 1 1 1" Background="#2E2E2E" VerticalAlignment="Top" Foreground="ForestGreen" FontSize="14" Content="Generate" Click="GenerateForecast_Click" Height="25" Margin="137,37,517,0" />
+				</Grid>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>

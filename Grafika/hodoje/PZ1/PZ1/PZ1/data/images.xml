@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ArrayOfImage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Image>
+    <Path>Images\escape_velocity.jpg</Path>
+    <Title>a</Title>
+    <Description>jhbvbn</Description>
+    <TimestampString>11/02/2019 16:06</TimestampString>
+    <Owner>Mario12345</Owner>
+  </Image>
+  <Image>
+    <Path>Images\mountains-on-mars.png</Path>
+    <Title>slika1</Title>
+    <Description>opis slike</Description>
+    <TimestampString>11/02/2019 16:10</TimestampString>
+    <Owner>nikola</Owner>
+  </Image>
+  <Image>
+    <Path>Images\sun-eclipse-28801800.png</Path>
+    <Title>slika3</Title>
+    <Description>opis slike 3</Description>
+    <TimestampString>11/02/2019 16:11</TimestampString>
+    <Owner>nikola</Owner>
+  </Image>
+  <Image>
+    <Path>Images\Frutas.png</Path>
+    <Title>slika1</Title>
+    <TimestampString>11/02/2019 16:48</TimestampString>
+    <Owner>nikola</Owner>
+  </Image>
+  <Image>
+    <Path>Images\image_1.png</Path>
+    <Title>slika333</Title>
+    <Description>opis</Description>
+    <TimestampString>11/02/2019 16:49</TimestampString>
+    <Owner>pera</Owner>
+  </Image>
+</ArrayOfImage>

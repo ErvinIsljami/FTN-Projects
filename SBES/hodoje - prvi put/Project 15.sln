@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{E05BDB12-74F8-494F-965A-CD76430EAAB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAuditServiceApp", "BankAuditServiceApp\BankAuditServiceApp.csproj", "{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankServiceApp", "BankServiceApp\BankServiceApp.csproj", "{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Debug|x64.ActiveCfg = Debug|x64
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Debug|x64.Build.0 = Debug|x64
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Debug|x86.ActiveCfg = Debug|x86
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Debug|x86.Build.0 = Debug|x86
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Release|x64.ActiveCfg = Release|x64
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Release|x64.Build.0 = Release|x64
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Release|x86.ActiveCfg = Release|x86
+		{E05BDB12-74F8-494F-965A-CD76430EAAB5}.Release|x86.Build.0 = Release|x86
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Debug|x64.ActiveCfg = Debug|x64
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Debug|x64.Build.0 = Debug|x64
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Debug|x86.ActiveCfg = Debug|x86
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Debug|x86.Build.0 = Debug|x86
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Release|x64.ActiveCfg = Release|x64
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Release|x64.Build.0 = Release|x64
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Release|x86.ActiveCfg = Release|x86
+		{E3ADD7CE-FBE5-4CB9-B880-C041A2AE0E60}.Release|x86.Build.0 = Release|x86
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Debug|x64.ActiveCfg = Debug|x64
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Debug|x64.Build.0 = Debug|x64
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Debug|x86.ActiveCfg = Debug|x86
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Debug|x86.Build.0 = Debug|x86
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Release|x64.ActiveCfg = Release|x64
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Release|x64.Build.0 = Release|x64
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Release|x86.ActiveCfg = Release|x86
+		{C7AAEDD2-D2DA-459D-B3E1-9CA1F13E163D}.Release|x86.Build.0 = Release|x86
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Debug|x64.ActiveCfg = Debug|x64
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Debug|x64.Build.0 = Debug|x64
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Debug|x86.ActiveCfg = Debug|x86
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Debug|x86.Build.0 = Debug|x86
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Release|x64.ActiveCfg = Release|x64
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Release|x64.Build.0 = Release|x64
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Release|x86.ActiveCfg = Release|x86
+		{981FDAA2-ADB6-4DA6-BD51-1BC52CEBDBF4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93595802-95E3-46D0-BAC5-B35668369459}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://srki1925.visualstudio.com/
+		SccProjectUniqueName0 = Common\\Common.csproj
+		SccProjectName0 = Common
+		SccLocalPath0 = Common
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ClientApp\\ClientApp.csproj
+		SccProjectName2 = ClientApp
+		SccLocalPath2 = ClientApp
+		SccProjectUniqueName3 = BankAuditServiceApp\\BankAuditServiceApp.csproj
+		SccProjectName3 = BankAuditServiceApp
+		SccLocalPath3 = BankAuditServiceApp
+		SccProjectUniqueName4 = BankServiceApp\\BankServiceApp.csproj
+		SccProjectName4 = BankServiceApp
+		SccLocalPath4 = BankServiceApp
+	EndGlobalSection
+EndGlobal

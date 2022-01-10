@@ -1,0 +1,42 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Slider x:Name="slider_sunPower" HorizontalAlignment="Left"  Margin="10,44,0,0" VerticalAlignment="Top" Width="170" Maximum="100" Value="50" ValueChanged="slider_sunPower_ValueChanged"/>
+        <Label Content="Sun power" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="132"/>
+        <GroupBox Header="Solar Panel&#xD;&#xA;" HorizontalAlignment="Left" Height="81" Margin="216,14,0,0" VerticalAlignment="Top" Width="310">
+        </GroupBox>
+        <TextBox x:Name="txtBox_solarPanelName"  HorizontalAlignment="Left" Height="23" Margin="287,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="224,30,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBox_solarPanelPower"  HorizontalAlignment="Left" Height="23" Margin="287,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Power" HorizontalAlignment="Left" Margin="224,61,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="428,155,0,0" VerticalAlignment="Top" Width="78" Height="23" Click="Button_Click_1"/>
+        <TextBox x:Name="txtBox_BatteryName"  HorizontalAlignment="Left" Height="23" Margin="287,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="224,124,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBox_BatteryPower"  HorizontalAlignment="Left" Height="23" Margin="287,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Power" HorizontalAlignment="Left" Margin="224,150,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBox_BatteryCapacity"  HorizontalAlignment="Left" Height="23" Margin="287,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Capacity" HorizontalAlignment="Left" Margin="224,180,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Battery" HorizontalAlignment="Left" Height="114" Margin="216,102,0,0" VerticalAlignment="Top" Width="310"/>
+        <GroupBox Header="Consumer" HorizontalAlignment="Left" Height="81" Margin="216,225,0,0" VerticalAlignment="Top" Width="310"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="436,253,0,0" VerticalAlignment="Top" Width="78" Height="23" Click="Button_Click_2"/>
+        <TextBox x:Name="txtBox_ConsumerName"  HorizontalAlignment="Left" Height="23" Margin="287,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="224,239,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBox_ConsumerPower"  HorizontalAlignment="Left" Height="23" Margin="287,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Power" HorizontalAlignment="Left" Margin="224,267,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="428,47,0,0" VerticalAlignment="Top" Width="78" Height="23" Click="Button_Click"/>
+        <Label Content="Current power in SHES" HorizontalAlignment="Left" Margin="212,344,0,0" VerticalAlignment="Top" Width="132"/>
+
+        <TextBox  x:Name="txtBox_Power" Text="{Binding PowerString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="216,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_Simulate" Content="SIMULATE" HorizontalAlignment="Left" Margin="332,317,0,0" VerticalAlignment="Top" Width="75" Click="button_Simulate_Click"/>
+        <Label Content="Current diff in SHES" HorizontalAlignment="Left" Margin="402,344,0,0" VerticalAlignment="Top" Width="132"/>
+        <TextBox  x:Name="txtBox_Diff" Text="{Binding PowerString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="406,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+
+    </Grid>
+</Window>

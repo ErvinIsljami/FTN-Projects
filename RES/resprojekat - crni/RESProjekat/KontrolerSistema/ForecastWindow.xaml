@@ -1,0 +1,13 @@
+﻿<Window x:Class="SystemController.ForecastWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemController"
+        mc:Ignorable="d"
+        Title="ForecastWindow" Height="600" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+	<Grid Background="#383A41">
+        <Label FontSize="30" HorizontalAlignment="Center" Foreground="White">Forecast</Label>
+        <TextBox Name="forecastTextBlock" Foreground="White" Background="#333333" Margin="10,60,10,10" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" IsReadOnly="True" MaxHeight="600" MaxWidth="980"></TextBox>
+    </Grid>
+</Window>

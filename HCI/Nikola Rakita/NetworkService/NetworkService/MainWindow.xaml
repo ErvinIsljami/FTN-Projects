@@ -1,0 +1,65 @@
+﻿<Window x:Class="NetworkService.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NetworkService"
+        xmlns:views="clr-namespace:NetworkService.View"
+        xmlns:viewModel="clr-namespace:NetworkService.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800" ResizeMode="NoResize">
+
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+
+
+    <Window.Resources>
+        <DataTemplate x:Name="networkViewTemplate" DataType="{x:Type viewModel:GeneratorViewModel}">
+            <views:NetworkView />
+        </DataTemplate>
+
+        <DataTemplate x:Name="networkDataViewTemplate" DataType="{x:Type viewModel:NetworkDataViewModel}">
+            <views:NetworkDataView />
+        </DataTemplate>
+
+        <DataTemplate x:Name="dataChartViewTemplate" DataType="{x:Type viewModel:DataChartViewModel}">
+            <views:DataChartView />
+        </DataTemplate>
+    </Window.Resources>
+
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding TabCommand}" Key="Tab"/>
+    </Window.InputBindings>
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="6">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
+
+    </Grid>
+</Window>

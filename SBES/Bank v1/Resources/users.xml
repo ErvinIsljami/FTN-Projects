@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ArrayOfAccount xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Account>
+    <User>test</User>
+    <Money>10000</Money>
+    <IsAccountActive>true</IsAccountActive>
+  </Account>
+  <Account>
+    <User>ervin</User>
+    <Money>0</Money>
+    <IsAccountActive>true</IsAccountActive>
+  </Account>
+</ArrayOfAccount>

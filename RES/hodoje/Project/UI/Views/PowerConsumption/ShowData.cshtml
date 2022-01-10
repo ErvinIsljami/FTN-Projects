@@ -1,0 +1,29 @@
+﻿@using Entities.Models
+@model IEnumerable<PowerConsumptionData>
+@{
+    ViewBag.Title = "ShowData";
+}
+
+<h2>ShowData</h2>
+<div>
+    <table class="table">
+        <tr>
+            <th>Area ID</th>
+            <th>Area Name</th>
+            <th>Power consumption[mW/h]</th>
+            <th>Timestamp</th>
+        </tr>
+        @foreach (PowerConsumptionData data in Model)
+        {
+            <tr>
+                <td>@data.GeoAreaId</td>
+                <td>@data.GeoArea.Name</td>
+                <td>@data.Consumption</td>
+                <td>@data.Timestamp</td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="/PowerConsumption/GetData">Return to filter</a>
+</div>

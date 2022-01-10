@@ -1,0 +1,58 @@
+﻿<Window x:Class="HCI_MapaManifestacijaGrada.View.Map"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_MapaManifestacijaGrada.View"
+		xmlns:models="clr-namespace:HCI_MapaManifestacijaGrada.Model"
+		xmlns:hModels="clr-namespace:HCI_MapaManifestacijaGrada.HelperModels"
+		xmlns:conv="clr-namespace:HCI_MapaManifestacijaGrada.Converters"
+        mc:Ignorable="d"
+        Title="Map" MaxHeight="720" MaxWidth="1024" Height="720" Width="1024" WindowStartupLocation="CenterScreen" Background="LightBlue">
+	<Window.Resources>
+		<conv:ImageConverter x:Key="ImageConverter"/>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="250"></ColumnDefinition>
+			<ColumnDefinition Width="*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<TreeView Name="TreeView" Grid.Row="1" Grid.Column="0" SelectedItemChanged="TreeView_SelectedItemChanged" ItemsSource="{Binding TreeViewItems}">
+			<TreeView.Resources>
+				<HierarchicalDataTemplate DataType="{x:Type hModels:CustomTreeViewItem}" ItemsSource="{Binding Manifestations}">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="{Binding ManifestationType.ImeIkonice, Mode=OneTime, Converter={StaticResource ImageConverter}}" Height="30" Width="30"></Image>
+						<TextBlock Text="{Binding ManifestationType.Ime}" Margin="5,0,0,0"></TextBlock>
+					</StackPanel>
+				</HierarchicalDataTemplate>
+				<DataTemplate DataType="{x:Type models:Manifestation}">
+					<StackPanel Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
+						<Image Source="{Binding Ikona, Converter={StaticResource ImageConverter}}" Width="20" Height="20"/>
+						<TextBlock Text="Oznaka:[" FontWeight="Bold"/>
+						<TextBlock Text="{Binding JedinstvenaOznaka}"></TextBlock>
+						<TextBlock Text="] " FontWeight="Bold"></TextBlock>
+						<TextBlock Text="Ime:[" FontWeight="Bold"></TextBlock>
+						<TextBlock Text="{Binding Ime}"/>
+						<TextBlock Text="]" FontWeight="Bold"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</TreeView.Resources>
+		</TreeView>
+		<Grid Grid.Row="1" Grid.Column="1" Background="Silver">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Canvas Name="Mapa" Loaded="Mapa_Loaded" MouseDown="Mapa_MouseDown" Grid.Row="0" Grid.Column="0" AllowDrop="True" Drop="Mapa_Drop">
+				<Canvas.Background>
+					<ImageBrush ImageSource="./../Resources/mapa_l.jpg"/>
+				</Canvas.Background>
+			</Canvas>
+		</Grid>
+	</Grid>
+</Window>

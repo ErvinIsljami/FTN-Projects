@@ -1,0 +1,15 @@
+42 2018-08-08 10 pikachu elektricni 500 615 0
+36 2019-11-23 20 bulbasaur travnati 450 800 0
+43 2018-05-09 20 pikachu elektricni 240 120 0
+16 2019-01-01 30 charmander vatreni 240 200 0
+50 2019-05-11 10 weedle travnati 100 300 0
+21 2019-12-14 40 charmander vatreni 480 400 0
+57 2019-04-10 50 weedle travnati 120 100 0
+64 2019-09-30 10 charmander vatreni 800 900 0
+29 2019-05-01 20 rattata normalni 300 200 0
+44 2018-07-24 30 dratini vodeni 900 1000 0
+71 2019-01-23 50 bulbasaur travnati 200 200 0
+70 2019-12-31 60 bulbasaur travnati 300 340 0
+35 2019-12-01 50 charmander vatreni 200 320 0
+88 2019-08-01 30 rattata normalni 120 80 0
+79 2019-06-09 40 vulpix vatreni 650 200 0

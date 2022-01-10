@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NCrunch Results Report</title>
+    <link href="HtmlReportData/Report.css" rel="stylesheet" type="text/css" />
+    <script src="HtmlReportData/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="HtmlReportData/Report.js" type="text/javascript"></script>
+</head>
+    <body>
+        <div id="logo"><a href="http://www.ncrunch.net"><img src="HtmlReportData/N-logo.png" width="196" height="60" style="border-width:0;" /></a></div>
+        <div id="overallHeader">
+            NCrunch Execution Run Results
+            <div id="dateStamp">7. ??? 2018. 15:05:13</div>
+            <div id="solutionFile">C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\Project.sln</div>
+        </div>
+        <div id="tabHeader">
+            <a class="tab selected" id="buildResultsTab">Build Results</a>
+            <a class="tab unselected" id="warningsTab">Errors/Warnings</a>
+            <a class="tab unselected" id="resultsTab">Test Results</a>
+            <a class="tab unselected" id="coverageTab">Metrics</a>
+        </div>
+        <div id="buildResultsPanel" class="resultPanel">
+            <div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>DataAccess</span>
+    <span class='executionTime'>(00:00:01.8874428)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\DataAccess\DataAccess.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>DataProxy</span>
+    <span class='executionTime'>(00:00:00.3475897)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\DataProxy\DataProxy.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>Entities</span>
+    <span class='executionTime'>(00:00:01.8425212)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\Entities\Entities.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>FileReader</span>
+    <span class='executionTime'>(00:00:01.7238879)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\FileReader\FileReader.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests</span>
+    <span class='executionTime'>(00:00:03.7157667)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\PowerConsumptionUnitTests\PowerConsumptionUnitTests.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>
+<br>WARNING - PowerConsumptionUnitTests.FileReader\TxtLoggerTest.cs (17, 24): CS0414: The field 'TxtLoggerTest.dataToLog' is assigned but its value is never used
+<br>WARNING - PowerConsumptionUnitTests.FileReader\TxtLoggerTest.cs (18, 24): CS0414: The field 'TxtLoggerTest.logDirectory' is assigned but its value is never used
+<br>
+<br>  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>UI</span>
+    <span class='executionTime'>(00:00:04.4802702)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Path:</span><span class='fieldValue'>C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\UI\UI.csproj</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Build Successful</span></div>
+<br>
+<br>  </div>
+</div>
+
+        </div>
+        <div id="warningsPanel" class="resultPanel">
+            <div class='result collapsed'>
+  <div class='resultHeader warning'>
+    <span class='name'>UI: Assemblies are being referenced from the build output directories of other projects in this solution</span>
+  </div>
+  <div class='resultSummary'>
+It has been detected that this component is referencing assemblies within the build output directories of projects within this solution.  It is strongly recommended that assemblies are referenced from a directory location that is not subject to disruption from the build process.
+<br />
+<br />Directly referencing assemblies that are updated, copied or manipulated by the build of projects in this solution will create implicit build dependencies that cannot be tracked by NCrunch or MSBuild.  This can result in inconsistent build behaviour patterns and code versioning issues.  It can also cause problems when trying to execute a clean build of the solution after it is checked out of a source control system.
+<br />
+<br />The following assembly references have triggered this warning: 
+<br />[AssemblyReferenceToBuildOutputDirectory, C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nikola Karaklic\Desktop\ZA_FAKS!\3. GODINA\6. SEMESTAR\RES\Projekat\res\Project\DataAccess\bin\Debug\EntityFramework.SqlServer.xml]
+<br />
+  </div>
+</div>
+
+        </div>
+        <div id="resultsPanel" class="resultPanel">
+            
+            <div class="filterPanel">
+                <span id="showPassingTestsFilter" class="filter"><input type="checkbox" checked="checked" />Show passing tests</span>
+                <span id="showFailingTestsFilter" class="filter"><input type="checkbox" checked="checked" />Show failing tests</span>
+                <span id="showIgnoredTestsFilter" class="filter"><input type="checkbox" checked="checked" />Show ignored tests</span>
+                <span id="showNotRunTestsFilter" class="filter"><input type="checkbox" checked="checked" />Show tests not run</span>
+            </div>
+
+            <div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.*</span>
+    <span class='executionTime'>(00:00:00.0015039)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCacheDataDateOutOfBounds</span>
+    <span class='executionTime'>(00:00:00.0145039)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataGoodConstructorParameters</span>
+    <span class='executionTime'>(00:00:00.2400283)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataGoodParametersEnteredFind</span>
+    <span class='executionTime'>(00:00:00.0129976)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataNoDateEnteredGetAll</span>
+    <span class='executionTime'>(00:00:00.4095574)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataNoFromDateEnteredFind</span>
+    <span class='executionTime'>(00:00:00.0025002)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataNoToDateEnteredFind</span>
+    <span class='executionTime'>(00:00:00.0020000)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataNullConstructorParameters</span>
+    <span class='executionTime'>(00:00:00.0005002)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.DataProxy.PowerConsumptionCachedDataTest.PowerConsumptionCachedDataSameDateTwiceTestCache</span>
+    <span class='executionTime'>(00:00:00.0025006)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.TxtLoggerTest.*</span>
+    <span class='executionTime'>(00:00:00)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.TxtLoggerTest.SetupMethod</span>
+    <span class='executionTime'>(00:00:00.0095011)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.*</span>
+    <span class='executionTime'>(00:00:00.0005002)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.ReadDataWithMissingHour</span>
+    <span class='executionTime'>(00:00:00.2375428)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.ReadDataWithMissingHourFromOneToTwentyFour</span>
+    <span class='executionTime'>(00:00:00.0109907)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.ReadDataWithNoRoot</span>
+    <span class='executionTime'>(00:00:00.0085164)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.ReadDataWithSameHour</span>
+    <span class='executionTime'>(00:00:00.0074839)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+<div class='result collapsed'>
+  <div class='resultHeader pass'>
+    <span class='name'>PowerConsumptionUnitTests.PowerConsumptionUnitTests.FileReader.XmlReaderTest.ReadGoodXmlData</span>
+    <span class='executionTime'>(00:00:00.0245046)</span>
+  </div>
+  <div class='resultSummary'>
+    <div class='field'><span class='fieldName'>Project:</span><span class='fieldValue'>PowerConsumptionUnitTests</span></div>
+    <div class='field'><span class='fieldName'>Result:</span><span class='fieldValue'>Passed</span></div>
+    <div class='field'><span class='fieldName'>Server used:</span><span class='fieldValue'>(local)</span></div>
+  </div>
+</div>
+
+        </div>
+        <div id="coveragePanel" class="resultPanel">
+            <table cellspacing='0' cellpadding='0'>
+  <tr class='headerRow'>
+    <td></td>
+    <td>Code Coverage %</td>
+    <td>Compiled Lines</td>
+    <td>Covered Lines</td>
+    <td>Uncovered Lines</td>
+    <td>Code Lines</td>
+  </tr>
+<tr id='Node_0' class='childRow  solutionRow expanded'>
+  <td class='nameCell' style='padding-left:20px;background-position:5px 6px'><img src='HtmlReportData/box.png' />Project</td>
+  <td class='coveragePercentCell' style='color:#004B00'>53,91%</td>
+  <td class='metricCell'>601</td>
+  <td class='metricCell'>324</td>
+  <td class='metricCell'>277</td>
+  <td class='metricCell'>1.937</td>
+</tr>
+<tr id='Node_28' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />DataAccess</td>
+  <td class='coveragePercentCell' style='color:#002B00'>31,37%</td>
+  <td class='metricCell'>51</td>
+  <td class='metricCell'>16</td>
+  <td class='metricCell'>35</td>
+  <td class='metricCell'>277</td>
+</tr>
+<tr id='Node_29' class='childRow childNode_28 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />DatabaseContext.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>5</td>
+  <td class='metricCell'>5</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>22</td>
+</tr>
+<tr id='Node_30' class='childRow childNode_28 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />ModelRepositories</td>
+  <td class='coveragePercentCell' style='color:#004600'>50,00%</td>
+  <td class='metricCell'>4</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>45</td>
+</tr>
+<tr id='Node_31' class='childRow childNode_30 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />GeoAreaRepository.cs</td>
+  <td class='coveragePercentCell' style='color:#004600'>50,00%</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>1</td>
+  <td class='metricCell'>1</td>
+  <td class='metricCell'>22</td>
+</tr>
+<tr id='Node_33' class='childRow childNode_30 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />PowerConsumptionDataRepository.cs</td>
+  <td class='coveragePercentCell' style='color:#004600'>50,00%</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>1</td>
+  <td class='metricCell'>1</td>
+  <td class='metricCell'>23</td>
+</tr>
+<tr id='Node_34' class='childRow childNode_28 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />ModelRepositoryInterfaces</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>32</td>
+</tr>
+<tr id='Node_35' class='childRow childNode_34 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IGeoAreaRepository.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>16</td>
+</tr>
+<tr id='Node_37' class='childRow childNode_34 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IPowerConsumptionDataRepository.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>16</td>
+</tr>
+<tr id='Node_38' class='childRow childNode_28 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />PowerConsumptionMigrations</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>27</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>27</td>
+  <td class='metricCell'>84</td>
+</tr>
+<tr id='Node_39' class='childRow childNode_38 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />201806042258273_CreateInitialModels.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>16</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>16</td>
+  <td class='metricCell'>29</td>
+</tr>
+<tr id='Node_41' class='childRow childNode_38 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />201806042258273_CreateInitialModels.Designer.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>4</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>4</td>
+  <td class='metricCell'>30</td>
+</tr>
+<tr id='Node_43' class='childRow childNode_38 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />Configuration.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>7</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>7</td>
+  <td class='metricCell'>25</td>
+</tr>
+<tr id='Node_44' class='childRow childNode_28 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_45' class='childRow childNode_44 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_46' class='childRow childNode_28 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />UnitOfWork</td>
+  <td class='coveragePercentCell' style='color:#005400'>60,00%</td>
+  <td class='metricCell'>15</td>
+  <td class='metricCell'>9</td>
+  <td class='metricCell'>6</td>
+  <td class='metricCell'>57</td>
+</tr>
+<tr id='Node_47' class='childRow childNode_46 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IUnitOfWork.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>17</td>
+</tr>
+<tr id='Node_49' class='childRow childNode_46 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />UnitOfWork.cs</td>
+  <td class='coveragePercentCell' style='color:#005400'>60,00%</td>
+  <td class='metricCell'>15</td>
+  <td class='metricCell'>9</td>
+  <td class='metricCell'>6</td>
+  <td class='metricCell'>40</td>
+</tr>
+<tr id='Node_1' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />DataProxy</td>
+  <td class='coveragePercentCell' style='color:#008700'>96,43%</td>
+  <td class='metricCell'>84</td>
+  <td class='metricCell'>81</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>245</td>
+</tr>
+<tr id='Node_2' class='childRow childNode_1 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />CacheManager.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>24</td>
+  <td class='metricCell'>24</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>53</td>
+</tr>
+<tr id='Node_3' class='childRow childNode_1 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />ICacheManager.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>26</td>
+</tr>
+<tr id='Node_4' class='childRow childNode_1 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />IPowerConsumptionCachedData.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>15</td>
+</tr>
+<tr id='Node_5' class='childRow childNode_1 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />PowerConsumptionCachedData.cs</td>
+  <td class='coveragePercentCell' style='color:#008500'>95,00%</td>
+  <td class='metricCell'>60</td>
+  <td class='metricCell'>57</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>114</td>
+</tr>
+<tr id='Node_6' class='childRow childNode_1 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_7' class='childRow childNode_6 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_50' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />Entities</td>
+  <td class='coveragePercentCell' style='color:#001700'>17,14%</td>
+  <td class='metricCell'>70</td>
+  <td class='metricCell'>12</td>
+  <td class='metricCell'>58</td>
+  <td class='metricCell'>220</td>
+</tr>
+<tr id='Node_51' class='childRow childNode_50 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />IRepository.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>24</td>
+</tr>
+<tr id='Node_52' class='childRow childNode_50 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Models</td>
+  <td class='coveragePercentCell' style='color:#006200'>70,00%</td>
+  <td class='metricCell'>10</td>
+  <td class='metricCell'>7</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>63</td>
+</tr>
+<tr id='Node_53' class='childRow childNode_52 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />GeoArea.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>19</td>
+</tr>
+<tr id='Node_55' class='childRow childNode_52 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />InputDate.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>2</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>18</td>
+</tr>
+<tr id='Node_57' class='childRow childNode_52 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />PowerConsumptionData.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>5</td>
+  <td class='metricCell'>5</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>26</td>
+</tr>
+<tr id='Node_58' class='childRow childNode_50 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_59' class='childRow childNode_58 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_60' class='childRow childNode_50 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />Repository.cs</td>
+  <td class='coveragePercentCell' style='color:#000B00'>8,33%</td>
+  <td class='metricCell'>60</td>
+  <td class='metricCell'>5</td>
+  <td class='metricCell'>55</td>
+  <td class='metricCell'>96</td>
+</tr>
+<tr id='Node_8' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />FileReader</td>
+  <td class='coveragePercentCell' style='color:#004000'>45,89%</td>
+  <td class='metricCell'>146</td>
+  <td class='metricCell'>67</td>
+  <td class='metricCell'>79</td>
+  <td class='metricCell'>388</td>
+</tr>
+<tr id='Node_9' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Interfaces</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>58</td>
+</tr>
+<tr id='Node_10' class='childRow childNode_9 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />ILogger.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>14</td>
+</tr>
+<tr id='Node_12' class='childRow childNode_9 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IReader.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>15</td>
+</tr>
+<tr id='Node_14' class='childRow childNode_9 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IWatcher.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>14</td>
+</tr>
+<tr id='Node_16' class='childRow childNode_9 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />IWriter.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>15</td>
+</tr>
+<tr id='Node_17' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Loggers</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>10</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>10</td>
+  <td class='metricCell'>26</td>
+</tr>
+<tr id='Node_18' class='childRow childNode_17 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />TxtLogger.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>10</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>10</td>
+  <td class='metricCell'>26</td>
+</tr>
+<tr id='Node_19' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_20' class='childRow childNode_19 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>37</td>
+</tr>
+<tr id='Node_21' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Readers</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>64</td>
+  <td class='metricCell'>64</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>108</td>
+</tr>
+<tr id='Node_22' class='childRow childNode_21 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />XmlReader.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>64</td>
+  <td class='metricCell'>64</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>108</td>
+</tr>
+<tr id='Node_23' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />ReadModel</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>21</td>
+</tr>
+<tr id='Node_24' class='childRow childNode_23 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />ReadDataType.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>21</td>
+</tr>
+<tr id='Node_25' class='childRow childNode_8 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />Watcher.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>41</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>41</td>
+  <td class='metricCell'>83</td>
+</tr>
+<tr id='Node_26' class='childRow childNode_8 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Writers</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>28</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>28</td>
+  <td class='metricCell'>55</td>
+</tr>
+<tr id='Node_27' class='childRow childNode_26 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />DatabaseWriter.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>28</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>28</td>
+  <td class='metricCell'>55</td>
+</tr>
+<tr id='Node_79' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />PowerConsumptionUnitTests</td>
+  <td class='coveragePercentCell' style='color:#008900'>98,01%</td>
+  <td class='metricCell'>151</td>
+  <td class='metricCell'>148</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>451</td>
+</tr>
+<tr id='Node_80' class='childRow childNode_79 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />PowerConsumptionUnitTests.DataProxy</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>78</td>
+  <td class='metricCell'>78</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>215</td>
+</tr>
+<tr id='Node_81' class='childRow childNode_80 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />PowerConsumptionCachedDataTest.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>78</td>
+  <td class='metricCell'>78</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>215</td>
+</tr>
+<tr id='Node_82' class='childRow childNode_79 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />PowerConsumptionUnitTests.FileReader</td>
+  <td class='coveragePercentCell' style='color:#008600'>95,89%</td>
+  <td class='metricCell'>73</td>
+  <td class='metricCell'>70</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>215</td>
+</tr>
+<tr id='Node_83' class='childRow childNode_82 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />TxtLoggerTest.cs</td>
+  <td class='coveragePercentCell' style='color:#008C00'>100,00%</td>
+  <td class='metricCell'>8</td>
+  <td class='metricCell'>8</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>92</td>
+</tr>
+<tr id='Node_85' class='childRow childNode_82 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />XmlReaderTest.cs</td>
+  <td class='coveragePercentCell' style='color:#008500'>95,38%</td>
+  <td class='metricCell'>65</td>
+  <td class='metricCell'>62</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>123</td>
+</tr>
+<tr id='Node_86' class='childRow childNode_79 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>21</td>
+</tr>
+<tr id='Node_87' class='childRow childNode_86 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>21</td>
+</tr>
+<tr id='Node_61' class='childRow childNode_0 projectRow collapsed'>
+  <td class='nameCell' style='padding-left:35px;background-position:20px 6px'><img src='HtmlReportData/cog.png' />UI</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>99</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>99</td>
+  <td class='metricCell'>356</td>
+</tr>
+<tr id='Node_62' class='childRow childNode_61 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />App_Start</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>41</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>41</td>
+  <td class='metricCell'>177</td>
+</tr>
+<tr id='Node_63' class='childRow childNode_62 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />BundleConfig.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>7</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>7</td>
+  <td class='metricCell'>32</td>
+</tr>
+<tr id='Node_65' class='childRow childNode_62 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />FilterConfig.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>3</td>
+  <td class='metricCell'>14</td>
+</tr>
+<tr id='Node_67' class='childRow childNode_62 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />RouteConfig.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>4</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>4</td>
+  <td class='metricCell'>24</td>
+</tr>
+<tr id='Node_69' class='childRow childNode_62 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />UnityConfig.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>19</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>19</td>
+  <td class='metricCell'>69</td>
+</tr>
+<tr id='Node_71' class='childRow childNode_62 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />UnityMvcActivator.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>8</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>8</td>
+  <td class='metricCell'>38</td>
+</tr>
+<tr id='Node_72' class='childRow childNode_61 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Controllers</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>47</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>47</td>
+  <td class='metricCell'>103</td>
+</tr>
+<tr id='Node_73' class='childRow childNode_72 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />HomeController.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>11</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>11</td>
+  <td class='metricCell'>30</td>
+</tr>
+<tr id='Node_75' class='childRow childNode_72 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />PowerConsumptionController.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>36</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>36</td>
+  <td class='metricCell'>73</td>
+</tr>
+<tr id='Node_76' class='childRow childNode_61 fileRow'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/document.png' />Global.asax.cs</td>
+  <td class='coveragePercentCell' style='color:#000000'>0,00%</td>
+  <td class='metricCell'>11</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>11</td>
+  <td class='metricCell'>40</td>
+</tr>
+<tr id='Node_77' class='childRow childNode_61 directoryRow collapsed'>
+  <td class='nameCell' style='padding-left:50px;background-position:35px 6px'><img src='HtmlReportData/folder.png' />Properties</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>36</td>
+</tr>
+<tr id='Node_78' class='childRow childNode_77 fileRow'>
+  <td class='nameCell' style='padding-left:65px;background-position:50px 6px'><img src='HtmlReportData/document.png' />AssemblyInfo.cs</td>
+  <td class='coveragePercentCell' style='color:##000000'></td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>0</td>
+  <td class='metricCell'>36</td>
+</tr>
+</table>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AliExpress", "AliExpress\AliExpress.ccproj", "{20DA47D6-6ED7-4A74-8056-400A1575C965}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliExpressWebRole", "AliExpressWebRole\AliExpressWebRole.csproj", "{630B379E-1F3C-4858-B7D6-5339BD24D453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AliExpressWorkerRole", "AliExpressWorkerRole\AliExpressWorkerRole.csproj", "{F33BE4A6-C040-4A5E-9EBB-14277F71383B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlIExpress_Data", "AlIExpress_Data\AlIExpress_Data.csproj", "{79CBAD2D-4C0B-4F03-8226-B1C178683FB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20DA47D6-6ED7-4A74-8056-400A1575C965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DA47D6-6ED7-4A74-8056-400A1575C965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DA47D6-6ED7-4A74-8056-400A1575C965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DA47D6-6ED7-4A74-8056-400A1575C965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630B379E-1F3C-4858-B7D6-5339BD24D453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630B379E-1F3C-4858-B7D6-5339BD24D453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630B379E-1F3C-4858-B7D6-5339BD24D453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630B379E-1F3C-4858-B7D6-5339BD24D453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33BE4A6-C040-4A5E-9EBB-14277F71383B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33BE4A6-C040-4A5E-9EBB-14277F71383B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33BE4A6-C040-4A5E-9EBB-14277F71383B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33BE4A6-C040-4A5E-9EBB-14277F71383B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CBAD2D-4C0B-4F03-8226-B1C178683FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CBAD2D-4C0B-4F03-8226-B1C178683FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CBAD2D-4C0B-4F03-8226-B1C178683FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CBAD2D-4C0B-4F03-8226-B1C178683FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

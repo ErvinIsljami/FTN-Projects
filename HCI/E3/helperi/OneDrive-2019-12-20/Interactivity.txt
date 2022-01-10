@@ -1,0 +1,16 @@
+Komadna linija Visual Studija: Install-Package System.Windows.Interactivity.WPF
+
+ili 
+
+Nuget -> Browse -> WPF.Interactivity
+
+xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+
+<Kontrola gde se poziva event>
+	<i:Interaction.Triggers>
+   		<i:EventTrigger EventName="MouseLeftButtonDown" >
+       			<i:InvokeCommandAction 
+				Command="{Binding LeftMouseButtonDownCommand}"/>
+   		</i:EventTrigger>
+	</i:Interaction.Triggers>
+</Kontrola gde se poziva event>

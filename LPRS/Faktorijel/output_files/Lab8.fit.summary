@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Jan 30 12:35:54 2020
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : Lab8
+Top-level Entity Name : cpu_top
+Family : MAX 10
+Device : 10M16SAU169C8G
+Timing Models : Final
+Total logic elements : 183 / 15,840 ( 1 % )
+    Total combinational functions : 175 / 15,840 ( 1 % )
+    Dedicated logic registers : 76 / 15,840 ( < 1 % )
+Total registers : 76
+Total pins : 34 / 130 ( 26 % )
+Total virtual pins : 0
+Total memory bits : 0 / 562,176 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 90 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

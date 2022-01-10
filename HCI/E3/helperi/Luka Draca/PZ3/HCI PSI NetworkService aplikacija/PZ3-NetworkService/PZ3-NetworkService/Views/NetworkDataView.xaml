@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.NetworkDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:vml="clr-namespace:PZ3_NetworkService.VML"
+             vml:ViewModelLocator.AutoHookedUpViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="654" d:DesignWidth="1009">
+    <Grid Background="#FF303030" x:Name="MainGrid">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadedCommand}" CommandParameter="{Binding ElementName=MainGrid}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="LimeGreen" BorderThickness="2" Margin="10 0 10 0">
+
+            <DataGrid TabIndex="8" x:Name="ItemsDataGrid" ItemsSource="{Binding Items,Mode=TwoWay}" ColumnWidth="*" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False" IsReadOnly="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Image">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Name="Picture" Source="{Binding Type.ImgUri}" Width="175" Height="80" ></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Name" TextBlock.TextAlignment="Center" Binding="{Binding Name}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id}" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Value" TextBlock.TextAlignment="Center" Binding="{Binding Value}" IsReadOnly="True">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="3" Margin="5" BorderBrush="LimeGreen" BorderThickness="3">
+            <TextBox TabIndex="0" x:Name="SearchTextBox" Foreground="White" Text="{Binding SearchText}" Width="200" Height="40" FontSize="14" Padding="2" HorizontalAlignment="Left" Margin="40,53,0,55" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding GotFocusSearchCommand}" CommandParameter="{Binding ElementName=SearchTextBox}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="LostFocus">
+                        <i:InvokeCommandAction Command="{Binding LostFocusSearchCommand}" CommandParameter="{Binding ElementName=SearchTextBox}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+        </Border>
+        <TextBlock x:Name="errBlock" Height="20" Margin="48,110,90,34" Text="" Foreground="Red" />
+        <RadioButton TabIndex="1" x:Name="NameRB" FontSize="12" IsChecked="True" Margin="272,56,0,85" Foreground="White" HorizontalContentAlignment="Left" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Content="Name">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Checked">
+                    <i:InvokeCommandAction Command="{Binding ByNameCheckedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </RadioButton>
+        <RadioButton TabIndex="2" x:Name="IdRB" FontSize="12" Margin="272,84,0,53" Foreground="White" HorizontalContentAlignment="Left" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Content="Id" Width="54">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Checked">
+                    <i:InvokeCommandAction Command="{Binding ByIdCheckedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </RadioButton>
+
+        <StackPanel Margin="48,37,69,57" Grid.Column="2">
+            <RadioButton TabIndex="5" x:Name="OutRB" FontSize="12" Margin="20,5,0,0" Foreground="White" HorizontalContentAlignment="Left" HorizontalAlignment="Left" VerticalContentAlignment="Center" Content="Out of Range" Grid.Column="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Checked">
+                        <i:InvokeCommandAction Command="{Binding OutCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </RadioButton>
+            <RadioButton TabIndex="6" x:Name="AllRB" FontSize="12" Margin="20,3,0,0" IsChecked="True" Foreground="White"  HorizontalContentAlignment="Left" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Content="All" Grid.Column="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Checked">
+                        <i:InvokeCommandAction Command="{Binding AllCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </RadioButton>
+            <RadioButton TabIndex="7" x:Name="ExRB" FontSize="12" Margin="20,3,0,0" Foreground="White" HorizontalContentAlignment="Left" HorizontalAlignment="Left"  VerticalContentAlignment="Center" Content="Expected Values" Grid.Column="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Checked">
+                        <i:InvokeCommandAction Command="{Binding ExpectedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </RadioButton>
+        </StackPanel>
+
+        <Button TabIndex="3" Grid.Column="1" Height="40" Margin="39,32,32,92" Content="Search" x:Name="SearchButton" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding SearchCommand}" CommandParameter="{Binding ElementName=errBlock}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button TabIndex="4" Grid.Column="1" Height="30" Margin="39,77,32,57" Content="Reset" x:Name="ResetButton" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding ResetCommand}" CommandParameter="{Binding ElementName=MainGrid}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="3" Margin="5" BorderBrush="LimeGreen" BorderThickness="3" />
+        <Label Content="Id :" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 10 0 0" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Name :" Width="50" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 50 0 0" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Type :" Width="50" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 90 0 0" Grid.Row="2" Grid.Column="0"/>
+        <TextBox TabIndex="8" Text="{Binding Item.Id}" Grid.Row="2" Width="120" Height="25" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="0 10 0 0" />
+        <TextBlock Text="{Binding Item.ValidationErrors[Id]}" Foreground="Red" Grid.Row="2" Width="170" Height="15" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="108,35,58,0" />
+        <TextBox TabIndex="9" Text="{Binding Item.Name}" Grid.Row="2" Width="120" Height="25" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="0 55 0 0" />
+        <TextBlock Text="{Binding Item.ValidationErrors[Name]}" Foreground="Red" Grid.Row="2" Width="170" Height="15" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="108,80,58,0" />
+        <ComboBox TabIndex="10" ItemsSource="{Binding ListTypes}"  SelectedIndex="{Binding SelectedIndex}" Foreground="White" Grid.Row="2" Width="120" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="0 95 0 0" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" CommandParameter="{Binding ElementName=ImgType}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+        <TextBlock Text="{Binding Item.ValidationErrors[Value]}" Foreground="Red" Grid.Row="2" Width="170" Height="15" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0.5" Margin="108,125,58,0" />
+
+        <Border BorderThickness="1" BorderBrush="Green" Grid.Row="2" Grid.ColumnSpan="2" Height="100" Width="100" Margin="200,20,206.667,26">
+            <Image x:Name="ImgType" Margin="0,0,-1,15"/>
+        </Border>
+
+        <Button TabIndex="11" Command="{Binding AddCommand}" Grid.Row="2" Grid.Column="1" Width="120" Height="30" Margin="62.333,20,84.667,89" Content="Add" />
+        <Button TabIndex="12" Command="{Binding DeleteCommand}" Grid.Row="2" Grid.Column="1" Width="120" Height="30" Margin="62.333,85,84.667,24" Content="Delete" />
+
+    </Grid>
+</UserControl>

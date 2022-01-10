@@ -1,0 +1,6 @@
+<div *ngIf="users.length > 0">
+  <ol>
+    <li *ngFor="let u of users">{{ u.id }} - {{ u.username }} - {{ u.password }}</li>
+  </ol>
+</div>
+

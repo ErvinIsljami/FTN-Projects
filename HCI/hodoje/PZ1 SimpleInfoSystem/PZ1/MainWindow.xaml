@@ -1,0 +1,78 @@
+﻿<Window x:Class="PZ1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        mc:Ignorable="d"
+        Title="Kalashnikov Models" ResizeMode="NoResize" Height="755" Width="900" Closing="MainWindow_OnClosing">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/pozadina3.jpg"></ImageBrush>
+    </Window.Background>
+    <Grid Margin="0,0,0,0">
+        <!-- Stilovi za tabele -->
+        <Grid.Resources>
+            <Style TargetType="DataGridCell">
+                <Style.Setters>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridCell">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style.Setters>
+            </Style>
+            <Style TargetType="DataGrid">
+                <Style.Setters>
+                    <Setter Property="BorderThickness" Value="2"></Setter>
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Style.Setters>
+            </Style>
+        </Grid.Resources>
+        <!-- Struktura tabele -->
+        <DataGrid x:Name="MainGrid" Opacity="0.8" ItemsSource="{Binding Kalashnikovs}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="10,270,10,69" RowHeight="100" ColumnWidth="*" CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Vendor" Binding="{Binding Vendor}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Model" Binding="{Binding Model}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Year of Origin" Binding="{Binding OriginYear}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Options" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <Button Name="Read" Content="Read" Height="33" Width="102" Click="Read_OnClick"></Button>
+                                <Button Name="Change" Content="Change" Height="33" Width="102" Click="Change_OnClick"></Button>
+                                <Button Name="Delete" Content="Delete" Height="33" Width="102" Click="Delete_OnClick"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Rectangle Fill="#FF707070" HorizontalAlignment="Left" Height="8" Margin="10,655,0,0" VerticalAlignment="Top" Width="864"/>
+        <Image x:Name="HeaderImage" Height="191" VerticalAlignment="Top" Stretch="Fill" Opacity="0.35" Source="/Images/banner.png" Margin="10,8,10,0" />
+        <Button x:Name="ButtonAdd" Content="Add another Kalashnikov model" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Width="277" RenderTransformOrigin="-1.02,0.9" Click="ButtonAdd_Click" Height="25" />
+        <Rectangle Fill="LightGray" HorizontalAlignment="Left" Opacity="0.5" Height="90" Margin="80,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45.247"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Ellipse Fill="WhiteSmoke" HorizontalAlignment="Left" Opacity="0.5" Height="100" Margin="75,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.507,0.493"/>
+        <Button x:Name="ButtonExit" Content="Exit" HorizontalAlignment="Left" Margin="10,678,0,0" VerticalAlignment="Top" Width="277" Height="25" Click="ButtonExit_OnClick"/>
+
+    </Grid>
+</Window>

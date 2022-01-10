@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Collector">
+      <UniqueIdentifier>{0f7e0bcb-d3fc-4c40-af7b-d359d3af605d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collector">
+      <UniqueIdentifier>{23f4376d-db99-49e9-a2c1-b4b8dd362110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Code">
+      <UniqueIdentifier>{226d1172-c7e0-4adf-99d6-f2e95d16a3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Headers">
+      <UniqueIdentifier>{85c1a349-94b3-45fd-8233-448a67478860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HeapManager">
+      <UniqueIdentifier>{7059820b-9acd-46d0-9fa0-eea247c904fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HeapManager">
+      <UniqueIdentifier>{7eea199a-0749-4c48-aa29-e9bb932ddf18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GC">
+      <UniqueIdentifier>{5694cd80-34fb-4a53-a586-346deef832b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GC">
+      <UniqueIdentifier>{aeae05ce-863a-4761-aebf-c59778533e1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="collector.cpp">
+      <Filter>Source Files\Collector</Filter>
+    </ClCompile>
+    <ClCompile Include="hashmap.cpp">
+      <Filter>Resource Files\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="list.cpp">
+      <Filter>Resource Files\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="GC.cpp">
+      <Filter>Source Files\GC</Filter>
+    </ClCompile>
+    <ClCompile Include="heapManager.cpp">
+      <Filter>Source Files\HeapManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="collector.h">
+      <Filter>Header Files\Collector</Filter>
+    </ClInclude>
+    <ClInclude Include="hashmap.h">
+      <Filter>Resource Files\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Resource Files\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.h">
+      <Filter>Resource Files\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GC.h">
+      <Filter>Header Files\GC</Filter>
+    </ClInclude>
+    <ClInclude Include="heapManager.h">
+      <Filter>Header Files\HeapManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

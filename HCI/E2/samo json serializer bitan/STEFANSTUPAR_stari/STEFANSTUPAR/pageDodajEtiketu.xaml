@@ -1,0 +1,86 @@
+﻿<Page x:Class="STEFANSTUPAR.pageDodajEtiketu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:xctk="http://schemas/xceed.com/wpf/xaml/toolkit"
+      xmlns:local="clr-namespace:STEFANSTUPAR"
+      xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="655" d:DesignWidth="955"
+      Title="pageDodajEtiketu">
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="60" Background="LightPink">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="LightPink" Foreground="White">Dodaj novu etiketu</Label>
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom"  Margin="236,0,60,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="64.8" />
+                <ColumnDefinition Width="Auto" MinWidth="833.6" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45px" />
+                <RowDefinition Height="45px" />
+                <RowDefinition Height="180px" />
+                <RowDefinition Height="45px" />
+                <RowDefinition Height="45px" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="1" Height="30px" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,5.4,0,10.2" Width="53">Oznaka:</Label>
+            <TextBox x:Name="tbOznaka" Grid.Column="1" Grid.Row="1" Margin="25.8,5,405.8,5.8" BorderThickness="2px" BorderBrush="HotPink" Width="350px" HorizontalAlignment="Left" >
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="HotPink"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Label Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,76.8,0,79" Height="25" Width="37">Opis:</Label>
+            <TextBox x:Name="tbOpis" Grid.Row="2" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap" Margin="27.2,9.8,0,10" BorderThickness="2px" BorderBrush="HotPink" Width="350px" HorizontalAlignment="Left">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="HotPink"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Label Grid.Row="3"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,11,0,9.6" Height="25" Width="35">Boja:</Label>
+            <xctk1:ColorPicker Name="cp" Grid.Column="1"  Grid.Row="3" AvailableColorsSortingMode="HueSaturationBrightness" ToolTip="Opcion unos boje etikete"  Width="350" HorizontalAlignment="Left"  VerticalAlignment="Center" DisplayColorAndName="True" Margin="27.2,10,0,10.6" Height="25"/>
+
+            <Button Grid.Row="5" Grid.Column="1" Margin="157.2,34.8,608.4,-63" Background="LightGreen" Click="DodajEtiketu_ButtonClick">
+                <Label Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Dodaj
+                </Label>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="#4288c1"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+
+                </Button.Resources>
+            </Button>
+
+            <TextBox x:Name="alert" Grid.Column="1" Grid.Row="4" IsReadOnly="True" Margin="25.8,5,405.8,5.8" Foreground="Red" FontSize="15" TextAlignment="Center" BorderThickness="2px" BorderBrush="Red" Width="350px" HorizontalAlignment="Left" >
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="BorderBrush" Value="Red"/>
+                        <Setter Property="BorderThickness" Value="5px"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </Grid>
+    </DockPanel>
+
+</Page>

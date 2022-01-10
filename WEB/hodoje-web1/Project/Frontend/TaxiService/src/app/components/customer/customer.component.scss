@@ -1,0 +1,40 @@
+.side-list{
+  height: 600px;
+  overflow-y: scroll;
+  padding: 1px;
+}
+
+.modal{
+  overflow-y: scroll;
+}
+
+textarea{
+  font-size: 14px;
+  padding: 5px;
+  resize: none;
+  background-color: white;
+}
+
+.star{
+  font-size: 20px;
+}
+
+.collapse{
+  z-index: 2;
+}
+
+.no-hover{
+  pointer-events: none;
+}
+
+.refine{
+  width: 100%;
+}
+
+alert-danger{
+  align-self: center;
+}
+
+agm-map{
+  height: 300px;
+}

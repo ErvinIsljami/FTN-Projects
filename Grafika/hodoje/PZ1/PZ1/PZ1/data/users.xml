@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <Username>mario</Username>
+    <Password>321fasfafs</Password>
+  </User>
+  <User>
+    <Username>Mario12345</Username>
+    <Password>mario123</Password>
+  </User>
+  <User>
+    <Username>nikola</Username>
+    <Password>123456789</Password>
+  </User>
+  <User>
+    <Username>pera</Username>
+    <Password>perapera</Password>
+  </User>
+</ArrayOfUser>

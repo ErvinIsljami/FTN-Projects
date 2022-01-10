@@ -1,0 +1,60 @@
+﻿@model IQueryable<Sluzba>
+@{
+    ViewBag.Title = "Client Page";
+}
+
+@using System.Diagnostics;
+@using AlIExpress_Data;
+
+<head>
+    <meta http-equiv="refresh" content="60" />
+</head>
+
+<body>
+    <h2>Client Page</h2>
+
+    <form action="/Client/Poruci">
+        <label>Vrsta robe</label>
+        <input type="text" name="textInput" />
+        <label>Kolicina</label>
+        <input type="number" name="numberInput" />
+        <button type="submit">Poruci</button>
+    </form>
+   
+   
+
+    @{ if (ViewBag.Response != null)
+        {
+            <p>@ViewBag.Response</p>
+        }
+    }
+
+    @{
+        if (Model != null)
+        {
+            <br /><br />
+            <table border="1" cellspacing="10">
+                <tr>
+                    <th>VrstaRobe</th>
+                    <th>Kolicina</th>
+                    
+                </tr>
+                @foreach (Sluzba s in Model)
+                {
+                    <tr>
+                        <td>@s.Vrstarobe</td>
+                        <td>@s.Kolicina</td>
+                    
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <br /><br />
+            <p>[ <a href="/Client/GoToTable">Go to Table</a> ]</p>
+        }
+    }
+
+
+</body>

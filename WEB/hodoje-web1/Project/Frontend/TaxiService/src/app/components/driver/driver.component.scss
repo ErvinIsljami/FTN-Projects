@@ -1,0 +1,38 @@
+.side-list{
+  height: 600px;
+  overflow-y: scroll;
+  padding: 1px;
+}
+
+textarea{
+  font-size: 14px;
+  padding: 5px;
+  resize: none;
+  background-color: white;
+}
+
+.modal{
+  overflow-y: scroll;
+}
+
+.no-hover{
+  pointer-events: none;
+}
+
+.loc-btn{
+  display: inline-block;
+}
+
+.form-group.required label:before {
+  content:"*";
+  color:red;
+}
+
+mark{
+  color: red;
+  background-color: transparent;
+}
+
+agm-map{
+  height: 300px;
+}

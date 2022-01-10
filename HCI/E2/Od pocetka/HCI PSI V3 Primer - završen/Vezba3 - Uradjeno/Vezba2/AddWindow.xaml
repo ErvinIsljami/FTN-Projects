@@ -1,0 +1,27 @@
+﻿<Window x:Class="Vezba2.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vezba2"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="400" Width="350">
+    <Grid>
+        <Label x:Name="labelIme" Content="Ime:" HorizontalAlignment="Left" Height="28" Margin="10,78,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label x:Name="labelPrezime" Content="Prezime:" HorizontalAlignment="Left" Height="28" Margin="10,135,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label x:Name="labelPol" Content="Pol:" HorizontalAlignment="Left" Height="28" Margin="10,196,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label x:Name="labelSmer" Content="Smer:" HorizontalAlignment="Left" Height="28" Margin="10,256,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox x:Name="textBoxIme" HorizontalAlignment="Left" Height="28" Margin="103,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="229"/>
+        <TextBox x:Name="textBoxPrezime" HorizontalAlignment="Left" Height="28" Margin="103,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="229"/>
+        <RadioButton x:Name="radioButtonM" IsChecked="True" Content="Muski" GroupName="Pol" HorizontalAlignment="Left" Height="16" Margin="103,202,0,0" VerticalAlignment="Top" Width="127"/>
+        <RadioButton x:Name="radioButtonZ" Content="Zenski" GroupName="Pol" HorizontalAlignment="Left" Height="16" Margin="205,202,0,0" VerticalAlignment="Top" Width="127"/>
+        <ComboBox x:Name="comboBoxSmer" HorizontalAlignment="Left" Height="28" Margin="103,256,0,0" VerticalAlignment="Top" Width="229"/>
+        <Rectangle Fill="#FF707070" HorizontalAlignment="Left" Height="8" Margin="10,317,0,0" VerticalAlignment="Top" Width="322"/>
+        <Button x:Name="buttonIzadji" Content="Izadji"  HorizontalAlignment="Left" Height="28" Margin="175,330,0,0" VerticalAlignment="Top" Width="157" Foreground="#FF707070" Background="White" Click="buttonIzadji_Click"/>
+        <Button x:Name="buttonDodaj" Content="Dodaj" HorizontalAlignment="Left" Height="28" Margin="10,330,0,0" VerticalAlignment="Top" Width="157" Background="White" Foreground="#FF707070" Click="buttonDodaj_Click"/>
+        <Label x:Name="labelNaslov" Content="DODAVANJE STUDENTA" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="322" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Agency FB" FontSize="36"/>
+        <Label x:Name="labelImeGreska" Content="" HorizontalAlignment="Left" Height="24" Margin="103,111,0,0" VerticalAlignment="Top" Width="229" Foreground="Red"/>
+        <Label x:Name="labelPrezimeGreska" Content="" HorizontalAlignment="Left" Height="28" Margin="103,163,0,0" VerticalAlignment="Top" Width="229" Foreground="Red"/>
+        <Label x:Name="labelSmerGreska" Content="" HorizontalAlignment="Left" Height="28" Margin="103,289,0,0" VerticalAlignment="Top" Width="229" Foreground="Red"/>
+    </Grid>
+</Window>

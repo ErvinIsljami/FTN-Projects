@@ -1,0 +1,4 @@
+1. pokrenes program i proveris da li radi komunikacija, ako ne radi zovi asistente
+
+2. u clientu omogucis slanje vise poruka(opciono), pre upita za unos poruke, while, zatvara se pre izlaza
+3. stavimo uticnice u neblokirajuci rezim i to pre operacija koje ih blokiraju(ako su operaciju u while-u onda pre while-a da ne bi stalno postavljao)

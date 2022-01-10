@@ -1,0 +1,33 @@
+﻿<Window x:Class="RESProjekat.DodajNoviGeneratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RESProjekat"
+        mc:Ignorable="d"
+        Title="DodajNoviGeneratorWindow" Height="380" Width="350">
+    <Grid Margin="0,0,0,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Kod" HorizontalAlignment="Left" Margin="28,35,0,0" VerticalAlignment="Top" Width="70" Height="25"/>
+        <Label Content="Tip jedinice" HorizontalAlignment="Left" Margin="28,65,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label Content="Minimalna snaga" HorizontalAlignment="Left" Margin="28,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="Maksimalna snaga" HorizontalAlignment="Left" Margin="28,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tip kontrole" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,2.104"/>
+        <Label Content="Cena rada [$/MW]" HorizontalAlignment="Left" Margin="28,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="Grupa" HorizontalAlignment="Left" Margin="28,251,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txt_box_kod"  HorizontalAlignment="Left" Height="23" Margin="192,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="cmb_box_tip_jedinice" HorizontalAlignment="Left" Margin="192,69,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txt_box_min"  HorizontalAlignment="Left" Height="23" Margin="192,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txt_box_max" HorizontalAlignment="Left" Height="23" Margin="192,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="cmb_box_tip_kontrole" HorizontalAlignment="Left" Margin="192,193,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txt_box_cena"  HorizontalAlignment="Left" Height="23" Margin="192,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="cmb_box_grupa" HorizontalAlignment="Left" Margin="192,255,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="130,310,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.509,0.55"/>
+        <Label Content="Trenutna snaga" HorizontalAlignment="Left" Margin="28,158,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="txt_box_trenutna" HorizontalAlignment="Left" Height="23" Margin="192,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

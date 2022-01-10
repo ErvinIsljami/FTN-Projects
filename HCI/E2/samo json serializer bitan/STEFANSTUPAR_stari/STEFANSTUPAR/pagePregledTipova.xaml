@@ -1,0 +1,124 @@
+﻿<Page x:Class="STEFANSTUPAR.pagePregledTipova"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:STEFANSTUPAR"
+      mc:Ignorable="d" 
+      d:DesignHeight="655" d:DesignWidth="955"
+      Title="pagePregledTipova">
+
+    <DockPanel>
+
+        <Grid DockPanel.Dock="Top" Height="70" Background="LightPink">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Background="LightPink" Foreground="White">Pregled tipova</Label>
+        </Grid>
+
+        <DockPanel DockPanel.Dock="Bottom">
+            <Grid DockPanel.Dock="Top" Height="190">
+                <DataGrid x:Name="dgrTip" ItemsSource="{Binding Path=Tipovi}" SelectionChanged="selektovano" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="500" Height="180">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Oznaka" Binding="{Binding Oznaka}" Width="100"/>
+                        <DataGridTextColumn Header="Ime" Binding="{Binding Naziv}" Width="100"/>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Opis}" Width="*"/>
+                    </DataGrid.Columns>
+
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="Turquoise"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+
+                    </DataGrid.Resources>
+
+                </DataGrid>
+            </Grid>
+
+            <DockPanel DockPanel.Dock="Bottom" VerticalAlignment="Stretch">
+                <Grid DockPanel.Dock="Top"  HorizontalAlignment="Center" Margin="0,10,0,0" Width="500" Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45px" />
+                        <RowDefinition Height="45px" />
+                        <RowDefinition Height="100px" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Height="30px" HorizontalAlignment="Right" VerticalAlignment="Center" Width="55">Oznaka:</Label>
+                    <TextBox x:Name="tbOznaka" Grid.Column="1" Grid.Row="0" Margin="25.8,5,405.8,5.8" BorderThickness="2px" BorderBrush="HotPink" Width="350px" HorizontalAlignment="Left" Height="29px">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Setter Property="BorderBrush" Value="HotPink"/>
+                                <Setter Property="BorderThickness" Value="5px"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+
+                    <Label Grid.Row="1" Height="30px" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Margin="0,9.4,0.2,6.2" >Ime:</Label>
+                    <TextBox x:Name="tbIme" Grid.Column="1" Grid.Row="1"  BorderThickness="2px" BorderBrush="HotPink" Height="29px" Width="350px" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26.2,9.8,0,5.8" >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Setter Property="BorderBrush" Value="HotPink"/>
+                                <Setter Property="BorderThickness" Value="5px"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+
+                    <Label Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" Height="30" Width="40">Opis:</Label>
+                    <TextBox x:Name="tbOpis" Grid.Row="2" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap" Margin="27.2,9.8,0,10" BorderThickness="2px" BorderBrush="HotPink" Width="350px" HorizontalAlignment="Left">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Setter Property="BorderBrush" Value="HotPink"/>
+                                <Setter Property="BorderThickness" Value="5px"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+
+                    <Label Grid.Row="3"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,20.6,0,36">Ikonica:</Label>
+                    <Image x:Name="imgTip" Grid.Row="3" Grid.Column="1" ToolTip="Opcion unos ikonice manifestacije" HorizontalAlignment="center" VerticalAlignment="Top" Source="Images/search.png" Width="50" Height="50" Margin="178.8,3.6,616.8,0"/>
+                    <Button Click="OdaberiIkonicu_ButtonClick" Grid.Row="3" Grid.Column="1" Width="80px" Background="White" HorizontalAlignment="Left" Margin="25.8,15.4,0,32">
+                        <Label Foreground="Black" HorizontalAlignment="Center" VerticalAlignment ="Center" Height="30" >
+                            Odaberi
+                        </Label>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Setter Property="BorderBrush" Value="#4288c1"/>
+                                <Setter Property="BorderThickness" Value="5px"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+
+
+                </Grid>
+                <Grid DockPanel.Dock="Bottom">
+                    <Button Height="30px"  Width="75px" Background="LightGreen" Click="IzmeniTip_ButtonClick" VerticalAlignment="top">
+                        <Label Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            Izmeni
+                        </Label>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                                <Setter Property="BorderBrush" Value="#4288c1"/>
+                                <Setter Property="BorderThickness" Value="5px"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </DockPanel>
+
+        </DockPanel>
+
+    </DockPanel>
+</Page>

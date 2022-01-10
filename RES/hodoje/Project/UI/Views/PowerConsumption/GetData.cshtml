@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "GetData";
+}
+
+<h2>Get power consumption data</h2>
+
+<h3>@ViewBag.ErrorMessage</h3>
+<form method="post" action="/PowerConsumption/GetData">
+    <div class="input-group">
+        <span>From</span>
+        <input class="form-control" type="datetime-local" name="From" placeholder="Enter 'From' date"/>
+    </div>
+    <div class="input-group">
+        <span>To</span>
+        <input class="form-control" type="datetime-local" name="To" placeholder="Enter 'To' date"/>
+    </div>
+    <input class="btn-primary" type="submit" value="Submit"/>
+</form>
+

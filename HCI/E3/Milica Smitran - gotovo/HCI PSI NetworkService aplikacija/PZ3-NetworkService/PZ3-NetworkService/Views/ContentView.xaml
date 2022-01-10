@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.ContentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+			 xmlns:vms="clr-namespace:PZ3_NetworkService.ViewModels"
+			 xmlns:v="clr-namespace:PZ3_NetworkService.Views"
+             Height="800" Width="1000">
+	<UserControl.Resources>
+		<DataTemplate DataType="{x:Type vms:NetworkDataViewModel}">
+			<v:NetworkDataView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vms:NetworkViewViewModel}">
+			<v:NetworkViewView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type vms:ChartViewModel}">
+			<v:ChartView/>
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="300"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<!-- https://stackoverflow.com/questions/14948171/how-to-emulate-a-console-in-wpf -->
+			<ScrollViewer Background="Black" Padding="5">
+				<StackPanel>
+					<ItemsControl ItemsSource="{Binding ConsoleOutput, Mode=OneWay}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Path=.}" Foreground="ForestGreen" FontFamily="Consolas"/>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+					<StackPanel FocusManager.FocusedElement="{Binding ElementName=ConsoleInput}" Orientation="Horizontal">
+						<TextBox Text=">>" IsReadOnly="True" Width="20" Background="Black" Foreground="Gray" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+						<TextBox Name="ConsoleInput" AcceptsReturn="False" VerticalContentAlignment="Center" Text="{Binding ConsoleInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Background="Black" Foreground="ForestGreen" FontFamily="Consolas" BorderBrush="{x:Null}" BorderThickness="0" SelectionBrush="{x:Null}" Width="963">
+							<TextBox.InputBindings>
+								<KeyBinding Key="Enter" Command="{Binding HandleConsoleInputCommand}">
+								</KeyBinding>
+							</TextBox.InputBindings>
+						</TextBox>
+					</StackPanel>
+				</StackPanel>
+			</ScrollViewer>
+		</Grid>
+		<Grid Grid.Row="1">
+			<ContentControl Content="{Binding CurrentViewModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		</Grid>
+    </Grid>
+</UserControl>

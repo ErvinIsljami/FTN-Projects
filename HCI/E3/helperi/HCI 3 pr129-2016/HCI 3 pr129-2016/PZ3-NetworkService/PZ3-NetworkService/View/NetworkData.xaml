@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="PZ3_NetworkService.View.NetworkData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.View"
+             xmlns:viewmodels="clr-namespace:PZ3_NetworkService.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="675" d:DesignWidth="1050">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding AddCommand}" Modifiers="Ctrl" Key="A"/>
+        <KeyBinding Command="{Binding DeleteCommand}" Modifiers="Ctrl" Key="D"/>
+    </UserControl.InputBindings>
+    <Grid Background="White">
+        <GroupBox Header="Add New" Foreground="LimeGreen" HorizontalAlignment="Left"  Margin="40,45,0,0" VerticalAlignment="Top" Width="459" FontSize="16" Height="139" >
+            <Grid HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="449" Margin="0,0,-2,0">
+                <Label Content="ID: " HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="18" Height="31" Width="89"/>
+                <Label Content="Name: " HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="18" Height="31" Width="89"/>
+                <Label Content="Type: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="18" Height="35" Width="89"/>
+                <TextBox x:Name="textboxId" Text="{Binding IDText}" HorizontalAlignment="Left" Height="27" Margin="104,4,0,0" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="18" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.5,0.5"/>
+                <TextBox x:Name="textboxName" Text="{Binding NameText}" HorizontalAlignment="Left" Height="27" Margin="104,40,0,0" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="18" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.5,0.5"/>
+                <ComboBox Name="comboboxType" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding VTypes}" SelectedItem="{Binding SelectedVType}" HorizontalAlignment="Left" Margin="104,76,0,0" VerticalAlignment="Top" Width="211"/>
+                <Button ToolTip="Adds element to the grid. [Control + A]" Name="buttonAdd" Background="White" Content="Add" HorizontalAlignment="Left" Margin="341,33,0,0" VerticalAlignment="Top" Width="88" Height="39" FontFamily="Segoe UI Light" FontSize="20" Command="{Binding AddCommand}"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Search" Foreground="LimeGreen" FontSize="16" HorizontalAlignment="Left" Height="139" Margin="535,45,0,0" VerticalAlignment="Top" Width="452">
+            <Grid HorizontalAlignment="Left" Height="114" Margin="0,0,-7,-3" VerticalAlignment="Top" Width="447">
+                <RadioButton GroupName="ValveType" Name="radiobuttonGas" Content="Gas" IsChecked="{Binding Path=RadiobuttonGas, Mode=TwoWay}" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" Margin="10,17,0,0" VerticalAlignment="Top" Height="35" VerticalContentAlignment="Center" Width="92"/>
+                <RadioButton GroupName="ValveType" Name="radiobuttonWater" Content="Water" IsChecked="{Binding Path=RadiobuttonWater, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,57,0,0" FontFamily="Segoe UI Light" FontSize="18" VerticalAlignment="Top" Height="35" VerticalContentAlignment="Center" Width="92"/>
+				<RadioButton GroupName="IdCheck" IsChecked="{Binding Path=RadiobuttonLessThan, Mode=TwoWay}" Content="Less than" FontFamily="Segoe UI Light" FontSize="18" Margin="102,17,210,0" VerticalAlignment="Top" Height="35" VerticalContentAlignment="Center"/>
+				<RadioButton GroupName="IdCheck" IsChecked="{Binding Path=RadiobuttonGreaterOrEqual, Mode=TwoWay}" Content="GreaterOrEqual" FontFamily="Segoe UI Light" FontSize="18" Margin="102,57,205,0" VerticalAlignment="Top" Height="35" VerticalContentAlignment="Center"/>
+                <TextBox Name="textboxSearch" Text="{Binding FilterId}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="40" Margin="256,34,0,0" TextWrapping="Wrap" FontFamily="Segoe UI Light" FontSize="18" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.5,0.5"/>
+                <Button Name="buttonFilter" Command="{Binding FilterCommand}" ToolTip="Filters the grid." Background="White" Content="Filter" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" Width="88" Height="39" FontFamily="Segoe UI Light" FontSize="20"/>
+                <Button Name="buttonReset" Command="{Binding ResetCommand}" ToolTip="Resets the grid." Background="White" Content="Reset" HorizontalAlignment="Left" Margin="337,65,0,0" VerticalAlignment="Top" Width="88" Height="39" FontFamily="Segoe UI Light" FontSize="20"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Grid View" Foreground="LimeGreen" Background="Transparent" FontSize="16" HorizontalAlignment="Left" Height="371" Margin="40,217,0,0" VerticalAlignment="Top" Width="947">
+            <DataGrid CanUserResizeRows="False" CanUserSortColumns="True" CanUserReorderColumns="True" SelectedItem="{Binding SelectedValve}" Background="Transparent" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" ItemsSource="{Binding NetworkDataValves}" RowHeight="40" MaxColumnWidth="205" AutoGenerateColumns="False" HorizontalAlignment="Center" Height="323" Margin="12,10,98,0" VerticalAlignment="Top" Width="825">
+                <DataGrid.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="PowderBlue" />
+                                    <Setter Property="BorderBrush" Value="PowderBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="PowderBlue" />
+                                    <Setter Property="BorderBrush" Value="PowderBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ResourceDictionary>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="200" Binding="{Binding Path=ID}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Name" Width="200" Binding="{Binding Path=Name}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Type" Width="200" Binding="{Binding ValveType.Name}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Value" Width="200" Binding="{Binding Val}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                <Setter Property="ToolTip" Value="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </GroupBox>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" Background="Transparent" ToolTip="Deletes selected item from the grid. [Control + D]" FontFamily="Segoe UI Light" HorizontalAlignment="Left" Margin="891,249,0,0" VerticalAlignment="Top" Width="88" Height="39" FontSize="20"/>
+
+
+
+    </Grid>
+</UserControl>

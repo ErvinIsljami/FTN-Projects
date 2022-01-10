@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="PZ3_NetworkService.View.NetworkDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.View"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+
+	<UserControl.InputBindings>
+		<KeyBinding Command="{Binding TabCommand}" Key="Tab"/>
+	</UserControl.InputBindings>
+
+	<Grid Background="LightGray">
+		<DataGrid ItemsSource="{Binding NetworkDataMjerila, UpdateSourceTrigger=PropertyChanged}" Height="398" VerticalAlignment="Top" Margin="10,10,10,0" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" Width="*"/>
+				<DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="*"/>
+				<DataGridTemplateColumn Header="Image" Width="*">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Image Height="50" Width="50" Source="{Binding Path=Tip.Img_Src}"/>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Header="Type" Binding="{Binding Path=Tip.Name}" Width="*"/>
+				<DataGridTextColumn Header="Value" Binding="{Binding Path=Valuee}" Width="*"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+
+		<TextBox FocusManager.FocusedElement="{Binding Path=terminalTB2, ElementName=UserControlName2}" Name="terminalTB2" Text="{Binding Path=NetworkDataTerminal, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Height="50" TextWrapping="Wrap"  VerticalAlignment="Top" Width="650" Margin="0,430,10,0" Background="Black" Foreground="White" >
+			<TextBox.InputBindings>
+				<KeyBinding Command="{Binding NetworkDataCommand}" CommandParameter="enter" Key="Enter" />
+			</TextBox.InputBindings>
+		</TextBox>
+		<TextBox Name="terminalTB1" IsReadOnly="True" HorizontalAlignment="Right" Height="50" TextWrapping="Wrap" Text="{Binding Path=NetworkDataTerminal2, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="110" Margin="0,430,665,0" FontSize="10" Background="Black" Foreground="White"/>
+		<Label Content="Available Commands: 'addNew', 'delete', 'search.searchType.argument', 'reset search', 'network', 'chart'" HorizontalAlignment="Left" VerticalAlignment="Top" Width="457" Height="33" Margin="140,480,0,-13" FontSize="10" />
+
+	</Grid>
+</UserControl>

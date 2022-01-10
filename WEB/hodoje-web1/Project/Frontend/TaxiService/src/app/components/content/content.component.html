@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="content">
+    <div *ngIf="role === 'customer'">
+      <customer></customer>
+    </div>
+    <div *ngIf="role === 'driver'">
+      <driver></driver>
+    </div>
+    <div *ngIf="role === 'dispatcher'">
+      <dispatcher></dispatcher>
+    </div>
+  </div>
+</div>

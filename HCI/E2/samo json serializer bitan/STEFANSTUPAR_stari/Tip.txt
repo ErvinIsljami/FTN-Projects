@@ -1,0 +1,1 @@
+[{"Oznaka":"sd","Naziv":"asdas","Opis":"dasd","Slika":"pack://application:,,,/STEFANSTUPAR;component/Images/search.png"}]

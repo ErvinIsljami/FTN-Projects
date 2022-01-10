@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5207DFCE-B90E-44E6-9D51-D8315752D590}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BankService</RootNamespace>
+    <AssemblyName>BankService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MlkPwgen, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MlkPwgen.0.3.0\lib\net45\MlkPwgen.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BankingService.cs" />
+    <Compile Include="BankServiceConfig.cs" />
+    <Compile Include="DomainLogic\CommandExecutor.cs" />
+    <Compile Include="DomainLogic\ICommandExecutor.cs" />
+    <Compile Include="CommandHandler\CommandHandler.cs" />
+    <Compile Include="CommandHandler\ICommandHandler.cs" />
+    <Compile Include="CommandingHost\CommandingHost.cs" />
+    <Compile Include="CommandingHost\ICommandingHost.cs" />
+    <Compile Include="CommandingManager\CommandingManager.cs" />
+    <Compile Include="CommandingManager\ICommandingManager.cs" />
+    <Compile Include="DatabaseManagement\BankCommandingContext.cs" />
+    <Compile Include="DatabaseManagement\DatabaseManager.cs" />
+    <Compile Include="DatabaseManagement\IDatabaseManager.cs" />
+    <Compile Include="DatabaseManagement\BankDomainContext.cs" />
+    <Compile Include="DatabaseManagement\Repositories\IRepository.cs" />
+    <Compile Include="DatabaseManagement\Repositories\Repository.cs" />
+    <Compile Include="Migrations\201912121328350_Initial.cs" />
+    <Compile Include="Migrations\201912121328350_Initial.designer.cs">
+      <DependentUpon>201912121328350_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912121341149_Command-Username.cs" />
+    <Compile Include="Migrations\201912121341149_Command-Username.designer.cs">
+      <DependentUpon>201912121341149_Command-Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912121414143_Cleanup.cs" />
+    <Compile Include="Migrations\201912121414143_Cleanup.designer.cs">
+      <DependentUpon>201912121414143_Cleanup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912131657364_Notification.cs" />
+    <Compile Include="Migrations\201912131657364_Notification.designer.cs">
+      <DependentUpon>201912131657364_Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912172141527_AddedUserAndBankAccount.cs" />
+    <Compile Include="Migrations\201912172141527_AddedUserAndBankAccount.designer.cs">
+      <DependentUpon>201912172141527_AddedUserAndBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912180904090_DatabaseSeparation.cs" />
+    <Compile Include="Migrations\201912180904090_DatabaseSeparation.designer.cs">
+      <DependentUpon>201912180904090_DatabaseSeparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CommandingContext\201912201651249_InitialDatbaseSepration.cs" />
+    <Compile Include="Migrations\CommandingContext\201912201651249_InitialDatbaseSepration.designer.cs">
+      <DependentUpon>201912201651249_InitialDatbaseSepration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\CommandingContext\CommandingConfiguration.cs" />
+    <Compile Include="Migrations\DomainContext\201912180941100_Initial.cs" />
+    <Compile Include="Migrations\DomainContext\201912180941100_Initial.designer.cs">
+      <DependentUpon>201912180941100_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912191225186_Loan.cs" />
+    <Compile Include="Migrations\DomainContext\201912191225186_Loan.designer.cs">
+      <DependentUpon>201912191225186_Loan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912201514265_UpdatedBankAccountModel.cs" />
+    <Compile Include="Migrations\DomainContext\201912201514265_UpdatedBankAccountModel.designer.cs">
+      <DependentUpon>201912201514265_UpdatedBankAccountModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912221823231_DatabaseGeneratedID.cs" />
+    <Compile Include="Migrations\DomainContext\201912221823231_DatabaseGeneratedID.designer.cs">
+      <DependentUpon>201912221823231_DatabaseGeneratedID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912222023429_TestMigration.cs" />
+    <Compile Include="Migrations\DomainContext\201912222023429_TestMigration.designer.cs">
+      <DependentUpon>201912222023429_TestMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912230813292_UserIsNullable.cs" />
+    <Compile Include="Migrations\DomainContext\201912230813292_UserIsNullable.designer.cs">
+      <DependentUpon>201912230813292_UserIsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\201912230912403_AddedUsernameToBankAccount.cs" />
+    <Compile Include="Migrations\DomainContext\201912230912403_AddedUsernameToBankAccount.designer.cs">
+      <DependentUpon>201912230912403_AddedUsernameToBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DomainContext\DomainConfiguration.cs" />
+    <Compile Include="Notification\INotificationContainer.cs" />
+    <Compile Include="Notification\INotificationHandler.cs" />
+    <Compile Include="Notification\NotificationContainer.cs" />
+    <Compile Include="Notification\NotificationHandler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{74b50d6e-d393-4eb9-a9f0-fa63af90462e}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912121328350_Initial.resx">
+      <DependentUpon>201912121328350_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121341149_Command-Username.resx">
+      <DependentUpon>201912121341149_Command-Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912121414143_Cleanup.resx">
+      <DependentUpon>201912121414143_Cleanup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912131657364_Notification.resx">
+      <DependentUpon>201912131657364_Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912172141527_AddedUserAndBankAccount.resx">
+      <DependentUpon>201912172141527_AddedUserAndBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912180904090_DatabaseSeparation.resx">
+      <DependentUpon>201912180904090_DatabaseSeparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CommandingContext\201912201651249_InitialDatbaseSepration.resx">
+      <DependentUpon>201912201651249_InitialDatbaseSepration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912180941100_Initial.resx">
+      <DependentUpon>201912180941100_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912191225186_Loan.resx">
+      <DependentUpon>201912191225186_Loan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912201514265_UpdatedBankAccountModel.resx">
+      <DependentUpon>201912201514265_UpdatedBankAccountModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912221823231_DatabaseGeneratedID.resx">
+      <DependentUpon>201912221823231_DatabaseGeneratedID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912222023429_TestMigration.resx">
+      <DependentUpon>201912222023429_TestMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912230813292_UserIsNullable.resx">
+      <DependentUpon>201912230813292_UserIsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\DomainContext\201912230912403_AddedUsernameToBankAccount.resx">
+      <DependentUpon>201912230912403_AddedUsernameToBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

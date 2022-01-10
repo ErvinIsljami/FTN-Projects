@@ -1,0 +1,83 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None" AllowsTransparency="True"
+        Background="{x:Null}" SizeToContent="WidthAndHeight">
+    <Canvas Height="350" Width="550">
+        <Path Stroke="Gray" Name="UIPath">
+            <Path.Fill>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </Path.Fill>
+            <Path.Effect>
+                <DropShadowEffect BlurRadius="1" ShadowDepth="2"/>
+            </Path.Effect>
+
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="50,0">
+                        <LineSegment Point="0,50"/>
+                        <LineSegment Point="0,300"/>
+                        <LineSegment Point="50,350"/>
+                        <LineSegment Point="450,350"/>
+                        <LineSegment Point="500,300"/>
+                        <LineSegment Point="500, 50"/>
+                        <LineSegment Point="450,0"/>
+                        <LineSegment Point="50,0"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <DockPanel Canvas.Left="10" Canvas.Top="58" Width="475" Height="239">
+            <ToolBar DockPanel.Dock="Top">
+                <Button Content="File" Click="Button_Click" ContextMenuService.IsEnabled="False" Height="22" VerticalAlignment="Top" Width="30">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="New" Click="New_Click"/>
+                            <MenuItem Header="Open" Click="Open_Click"/>
+                            <MenuItem Header="Save" Click="Save_Click"/>
+                            <MenuItem Header="Find and Replace" Click="FR_Click"/>
+                            <MenuItem Header="Exit" Click="Exit_Click"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Separator/>
+                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold"
+                              Content="B" FontWeight="Bold"/>
+                <Separator/>
+                <ToggleButton Command="EditingCommands.ToggleItalic"  Name="btnItalic"
+                              Content="I" FontStyle="Italic"/>
+                <Separator/>
+                <ToggleButton Command="EditingCommands.ToggleUnderline"  Name="btnUnderline"
+                              Content="U"/>
+                <Separator/>
+                <ComboBox Name="cmbFontFamily"  Width="150" SelectionChanged="cmbFontFamily_SelectionChanged"/>
+                <Separator/>
+                <ComboBox x:Name="cmbFontSize"  ToolTip="Font Size" Height="22" Margin="0" VerticalAlignment="Top" Width="37" SelectionChanged="cmbFontSize_SelectionChanged"/>
+                <Separator/>
+                <Button x:Name="btn_ChangeColor" ToolTip="Change Color"   Height="22" VerticalAlignment="Top" Width="75" Click="btn_ChangeColor_Click"/>
+                <Separator/>
+                <Button Content="Date" Height="22" BorderBrush="Transparent" VerticalAlignment="Top" Width="38" Click="Button_Date"/>
+                <Separator/>
+                
+
+
+
+            </ToolBar>
+            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10">
+                <RichTextBox.Resources>
+                    <Style TargetType="{x:Type Paragraph}">
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </RichTextBox.Resources>
+            </RichTextBox>
+        </DockPanel>
+        <Button Name="btnClose" Click="btnClose_Click"  Content="Close" Canvas.Left="133" Canvas.Top="313" Width="249" Cursor="Arrow"/>
+        <Label x:Name="Naslov" Content="&#x9;&#x9;       Notepad Lite V2.0" Canvas.Left="54" Canvas.Top="4" Width="394" FontSize="14"/>
+        <TextBox x:Name="tb_WordCount" Height="21" Margin="0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="76" Canvas.Left="409" Canvas.Top="286" IsReadOnly="True"/>
+        <Label Content="Word count:" Canvas.Left="345" Canvas.Top="286" Height="21" Width="64" FontSize="10"/>
+    </Canvas>
+</Window>

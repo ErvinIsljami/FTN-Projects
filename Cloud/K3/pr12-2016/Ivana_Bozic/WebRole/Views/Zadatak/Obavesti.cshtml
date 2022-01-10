@@ -1,0 +1,27 @@
+﻿@model IEnumerable < Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage > 
+@{ ViewBag.Title = "Index"; }
+
+<p>  @Html.ActionLink("Obavesti", "Obavesti") </p>
+
+<h2>Obavestenje</h2>
+
+
+
+<table>
+ <tr>        
+   <th>Vrsta</th>   
+   <th>Kolicina</th>     
+   <th> </th>    
+ </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>        
+          <td> @Html.DisplayFor(modelItem => item.AsString.Split(' ')[0]) <td>      
+          <td> @Html.DisplayFor(modelItem => item.AsString.Split(' ')[1]) </td>    
+        </tr>   
+    }
+</table> 

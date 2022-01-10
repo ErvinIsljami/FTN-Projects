@@ -1,0 +1,536 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-md-3">
+      <h2>Need a ride?</h2>      
+      <div *ngIf="!isRideRequestPending">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#callARideModal">
+          Call a ride
+        </button>
+      </div>
+        <!-- Modal -->
+      <div class="modal fade" id="callARideModal" tabindex="-1" role="dialog" aria-labelledby="callARideModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="callARideModalTitle">Call a ride</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="rideForm">
+                <div class="form-group" formGroupName="location">
+                  <h3>What's your location?</h3>
+                  <div>
+                    <p>
+                      <agm-map [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long" [zoom]="15" (mapClick)="placeMarker($event, rideForm)">
+                        <agm-marker [latitude]="mapInfo?.lat" [longitude]="mapInfo?.long">                  
+                        </agm-marker>
+                      </agm-map>
+                    </p>
+                  </div>
+                  <div formGroupName="address">
+                    <legend>Address</legend>
+                    <label for="streetName">Street Name</label>
+                    <input required formControlName="streetName" type="text" name="streetName" class="form-control form-control-sm">
+                    <div class="alert alert-danger" *ngIf="rdForm.location.get('address').get('streetName').touched && !rdForm.location.get('address').get('streetName').valid">
+                      <div *ngIf="rdForm.location.get('address').get('streetName').errors.required">Street name is required.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetName').errors.minlength">Street name needs to be at least {{rdForm.location.get('address').get('streetName').errors.minlength.requiredLength}} characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetName').errors.maxlength">Street name needs to be maximum of 30 characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetName').errors.pattern">Street name can contain only ASCII characters.</div>
+                    </div>
+                    <label for="streetNumber">Street Number</label>
+                    <input required formControlName="streetNumber" type="text" name="streetNumber" class="form-control form-control-sm">
+                    <div class="alert alert-danger" *ngIf="rdForm.location.get('address').get('streetNumber').touched && !rdForm.location.get('address').get('streetNumber').valid">
+                      <div *ngIf="rdForm.location.get('address').get('streetNumber').errors.required">Street number is required.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetNumber').errors.minlength">Street number needs to be at least {{rdForm.location.get('address').get('streetNumber').errors.minlength.requiredLength}} characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetNumber').errors.maxlength">Street number needs to be maximum of 4 characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('streetNumber').errors.pattern">Street number can contain only digits.</div>
+                    </div>
+                    <label for="city">City</label>
+                    <input required formControlName="city" type="text" name="city" class="form-control form-control-sm">
+                    <div class="alert alert-danger" *ngIf="rdForm.location.get('address').get('city').touched && !rdForm.location.get('address').get('city').valid">
+                      <div *ngIf="rdForm.location.get('address').get('city').errors.required">City is required.</div>
+                      <div *ngIf="rdForm.location.get('address').get('city').errors.minlength">City needs to be at least {{rdForm.location.get('address').get('city').errors.minlength.requiredLength}} characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('city').errors.maxlength">City needs to be maximum of 30 characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('city').errors.pattern">City can contain only ASCII characters.</div>
+                    </div>
+                    <label for="postalCode">Postal Code</label>
+                    <input required formControlName="postalCode" type="text" name="postalCode" class="form-control form-control-sm">
+                    <div class="alert alert-danger" *ngIf="rdForm.location.get('address').get('postalCode').touched && !rdForm.location.get('address').get('postalCode').valid">
+                      <div *ngIf="rdForm.location.get('address').get('postalCode').errors.required">Postal code is required.</div>
+                      <div *ngIf="rdForm.location.get('address').get('postalCode').errors.minlength">Postal code needs to be at least {{rdForm.location.get('address').get('postalCode').errors.minlength.requiredLength}} character long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('postalCode').errors.maxlength">Postal code needs to be maximum of 10 characters long.</div>
+                      <div *ngIf="rdForm.location.get('address').get('postalCode').errors.pattern">Postal code can contain only ASCII characters and digits.</div>
+                    </div>
+                  </div>
+                  <legend>Coordinates</legend>
+                  <label for="longitude">Longitude</label>
+                  <input formControlName="longitude" type="text" name="longitude" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="rdForm.location.get('longitude').touched && !rdForm.location.get('longitude').valid">
+                    <div *ngIf="rdForm.location.get('longitude').errors.required">Longitude is required.</div>
+                    <div *ngIf="rdForm.location.get('longitude').errors.isNotInLongitudeInterval">
+                      Longitude has to be in [{{rdForm.location.get('longitude').errors.isNotInLongitudeInterval.minLongitude}}, {{rdForm.location.get('longitude').errors.isNotInLongitudeInterval.maxLongitude}}] interval.
+                    </div>
+                  </div>
+                  <label for="latitude">Latitude</label>
+                  <input required formControlName="latitude" type="text" name="latitude" class="form-control form-control-sm">
+                  <div class="alert alert-danger" *ngIf="rdForm.location.get('latitude').touched && !rdForm.location.get('latitude').valid">
+                    <div *ngIf="rdForm.location.get('latitude').errors.required">Latitude is required.</div>
+                    <div *ngIf="rdForm.location.get('latitude').errors.isNotInLatitudeInterval">
+                        Latitude has to be in [{{rdForm.location.get('latitude').errors.isNotInLatitudeInterval.minLatitude}}, {{rdForm.location.get('latitude').errors.isNotInLatitudeInterval.maxLatitude}}] interval.
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h3>What type of car would you like?</h3>
+                  <h6>If this field is left empty a random type of car will arrive.</h6>
+                  <select formControlName="carType" name="carType" class="form-control form-control-sm">
+                    <option>PASSENGER</option>
+                    <option>VAN</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button *ngIf="!isRideChanging" class="btn btn-primary" (click)="callARide(rideForm.value)" type="button" [disabled]="!rideForm.valid">Call</button>
+                  <button *ngIf="isRideChanging" class="btn btn-primary" (click)="changeARide(rideForm.value)" type="button" [disabled]="!rideForm.valid">Change</button>
+                </div>    
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isRideRequestPending">
+        <div class="card">
+          <!--Card content-->
+          <div class="card-block">
+              <!--Title-->
+              <h4 class="card-title">Ride request sent</h4>
+              <!--Text-->
+              <p *ngIf="pendingRide?.rideStatus === 'CREATED'" class="card-text">Pending...</p>
+              <p *ngIf="pendingRide?.rideStatus !== 'CREATED'" class="card-text">STATUS: {{pendingRide?.rideStatus}}</p>
+          </div>
+          <!--/.Card content-->
+          <button [disabled]="pendingRide?.rideStatus !== 'CREATED'" class="btn btn-primary" (click)="toggleChangeRide()" data-toggle="modal" data-target="#callARideModal">Change</button>
+          <button [disabled]="pendingRide?.rideStatus !== 'CREATED'" class="btn btn-primary" type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal" (click)="cancelARide()">Cancel</button>
+        </div>
+      </div>
+      <div *ngIf="isRideCancelled">
+        <div data-backdrop="static" data-keyboard="false" class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="commentModalTitle">Tell us what went wrong.</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button> -->
+              </div>
+              <div class="modal-body">
+                <form #commentRideForm="ngForm" (ngSubmit)="commentCancelledRide(commentRideForm.value)">
+                  <input class="form-control form-control-lg" placeholder="Leave a comment..." name="description" [(ngModel)]="description">
+                  <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                  </div>    
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Ride finished successfully-->
+      <div>
+        <div class="modal fade" id="successfulRideModal" tabindex="-1" role="dialog" aria-labelledby="successfulRideModalTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 style="vertical-align: middle" class="modal-title" id="successfulRideModalTitle">You've reached your destination!</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="successfulRideForm">
+                  <div class="form-group">
+                    <span class="card-text">Rating: </span>
+                    <span>
+                      <a *ngFor="let rating of ratingList; let i = index" (click)="rateSuccessfulRideRating(i)">
+                        <i [ngStyle]="{'color': (i < successfulRideRating) ? 'red' : 'grey'}" class="fa fa-star"></i>
+                      </a>
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <textarea formControlName="commentDescription" type="text" class="form-control form-control-lg" placeholder="Anything on your mind?" name="description"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
+                    <button class="btn btn-primary" (click)="commentSuccessfulRide()" type="button">Finish</button>
+                  </div>    
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-3">
+      <h2>My personal data</h2>
+      <form [formGroup]="personalDataForm">
+        <table class="table table-sm table-hover">
+          <tr>
+            <td>Username:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="username" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.username.touched && !pdForm.username.valid">
+                  <div *ngIf="pdForm.username.errors.required">Username is required.</div>
+                  <div *ngIf="pdForm.username.errors.minlength">Username needs to be at least {{pdForm.username.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.username.errors.maxlength">Username needs to be maximum of {{pdForm.username.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.username.errors.pattern">Username can contain only ASCII characters and digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Password:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="password" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.password.touched && !pdForm.password.valid">
+                  <div *ngIf="pdForm.password.errors.required">Password is required.</div>
+                  <div *ngIf="pdForm.password.errors.minlength">Password needs to be at least {{pdForm.password.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.password.errors.maxlength">Password needs to be maximum of {{pdForm.password.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.password.errors.pattern">Password can contain only ASCII characters and digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="name" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.name.touched && !pdForm.name.valid">
+                  <div *ngIf="pdForm.name.errors.required">Name is required.</div>
+                  <div *ngIf="pdForm.name.errors.minlength">Name needs to be at least {{pdForm.name.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.name.errors.maxlength">Name needs to be maximum of {{pdForm.name.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.name.errors.pattern">Name can contain only ASCII characters.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Lastname:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="lastname" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.lastname.touched && !pdForm.lastname.valid">
+                  <div *ngIf="pdForm.lastname.errors.required">Lastname is required.</div>
+                  <div *ngIf="pdForm.lastname.errors.minlength">Lastname needs to be at least {{pdForm.lastname.errors.minlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.lastname.errors.maxlength">Lastname needs to be maximum of {{pdForm.lastname.errors.maxlength.requiredLength}} characters long.</div>
+                  <div *ngIf="pdForm.lastname.errors.pattern">Lastname can contain only ASCII characters.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="email" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.email.touched && !pdForm.email.valid">
+                  <div *ngIf="pdForm.email.errors.required">Email is required.</div>
+                  <div *ngIf="pdForm.email.errors.email">Email is not valid.</div>
+                  <div *ngIf="pdForm.email.errors.maxlength">Email can be a maximum of {{pdForm.email.errors.maxlength.requiredLength}} characters long.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>
+              <div class="form-group">
+                <select formControlName="gender" class="custom-select form-control form-control-sm">
+                  <option>MALE</option>
+                  <option>FEMALE</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="pdForm.gender.touched && !pdForm.gender.valid">
+                  <div *ngIf="pdForm.gender.errors.required">Gender is required.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>NIDN:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="nationalIdentificationNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.nationalIdentificationNumber.touched && !pdForm.nationalIdentificationNumber.valid">
+                  <div *ngIf="pdForm.nationalIdentificationNumber.errors.minlength || pdForm.nationalIdentificationNumber.errors.maxlength">National identification number needs to be {{pdForm.nationalIdentificationNumber.errors.minlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.nationalIdentificationNumber.errors.pattern">National identification number can contain only digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Phone number:</td>
+            <td>
+              <div class="form-group">
+                <input formControlName="phoneNumber" class="form-control form-control-sm">
+                <div class="alert alert-danger" *ngIf="pdForm.phoneNumber.touched && !pdForm.phoneNumber.valid">
+                  <div *ngIf="pdForm.phoneNumber.errors.minlength">Phone number needs to be at least {{pdForm.phoneNumber.errors.minlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.phoneNumber.errors.maxlength">Phone number needs to be maximum of {{pdForm.phoneNumber.errors.maxlength.requiredLength}} digits long.</div>
+                  <div *ngIf="pdForm.phoneNumber.errors.pattern">Phone number can contain only digits.</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <button [hidden]="!personalDataForm.dirty && personalDataForm.valid" class="btn btn-primary" type="submit" [disabled]="!personalDataForm.valid" (click)="changeMyData()">Save changes</button>  
+      </form>
+    </div>
+    <div class="col col-md-3">
+      <div class="tools">
+		<!-- TODO: Add validation for refinement forms -->
+        <h2>Refine history</h2>
+        <div>
+          <form [formGroup]="refineForm">
+            <button class="btn btn-primary refine" type="button" data-toggle="collapse" data-target="#filterCollapse" aria-expanded="false" aria-controls="collapseExample">
+              Filter rides
+            </button>
+            <div class="collapse" id="filterCollapse">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="input-group">
+                      <select class="custom-select form-control form-control-sm" name="filter" formControlName="filter">
+                        <option selected value="">--choose option--</option>
+                        <option *ngFor="let status of rideStatuses">{{status}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <button mdbBtn class="btn btn-primary" type="submit" (click)="refineRides('FILTER')">
+                      Filter &nbsp;<a class="fa fa-filter"></a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div formGroupName="sort">
+              <button class="btn btn-primary refine" type="button" data-toggle="collapse" data-target="#sortCollapse" aria-expanded="false" aria-controls="collapseExample">
+                Sort rides
+              </button>
+              <div class="collapse" id="sortCollapse">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-header">
+                      By date:
+                      <div class="input-group">
+                        <select name="byDate" formControlName="byDate" class="custom-select form-control form-control-sm">
+                          <option selected value="">--choose option--</option>
+                          <option>NEWEST</option>
+                          <option>OLDEST</option>
+                        </select>
+                      </div>
+                    </div>
+                    &nbsp;
+                    <div class="card-header">
+                      By rating:
+                      <div class="input-group">
+                        <select name="byRating" formControlName="byRating" class="custom-select form-control form-control-sm">
+                          <option selected value="">--choose option--</option>
+                          <option>HIGHEST</option>
+                          <option>LOWEST</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <button mdbBtn class="btn btn-primary" type="submit" (click)="refineRides('SORT')">
+                        Sort&nbsp;<a class="fa fa-sort"></a>
+                      </button>
+                    </div>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div formGroupName="search">
+              <button class="btn btn-primary refine" type="button" data-toggle="collapse" data-target="#searchCollapse" aria-expanded="false" aria-controls="collapseExample">
+                Search
+              </button>
+              <div class="collapse" id="searchCollapse">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-header" formGroupName="byDate">
+                      By date:
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="from">From</label>
+                        </div>
+                        <input type="date" class="custom-select form-control form-control-sm" name="from" formControlName="from">
+                      </div>
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="to">To</label>
+                        </div>
+                        <input type="date" class="custom-select form-control form-control-sm" name="to" formControlName="to">
+                      </div>
+                    </div>
+                    <div class="card-header" formGroupName="byRating">
+                      By rating:
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="from">From</label>
+                        </div>
+                        <input type="number" class="custom-select form-control form-control-sm" name="from" formControlName="from">
+                      </div>
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="to">To</label>
+                        </div>
+                        <input type="number" class="custom-select form-control form-control-sm" name="to" formControlName="to">
+                      </div>
+                    </div>
+                    <div class="card-header" formGroupName="byPrice">
+                      By price:
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="from">From</label>
+                        </div>
+                        <input type="number" class="custom-select form-control form-control-sm" name="from" formControlName="from">
+                      </div>
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="to">To</label>
+                        </div>
+                        <input type="number" class="custom-select form-control form-control-sm" name="to" formControlName="to">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button mdbBtn class="btn btn-primary" type="submit" (click)="refineRides('SEARCH')">
+                        Search&nbsp;<a class="fa fa-search"></a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>      
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-3">
+      <h2>History</h2>
+      <div *ngIf="ridesHistory.length === 0 &&
+                 refineForm.filter === null && 
+                 refineForm.sort === null && 
+                 refineForm.search === null">
+        You haven't went on any ride yet.
+      </div>
+      <div *ngIf="ridesHistory.length > 0" class="side-list">
+        <!-- <div class="card-body"> -->
+          <!-- <form #f="ngForm" (ngSubmit)="useHub(f.value)">
+            <input type="text" name="field" ngModel #field="ngModel"/>
+            <input type="submit" value="Click me!"/>
+          </form> -->
+        <table class="table table-hover">
+          <tr *ngFor="let ride of ridesHistory">
+            <td>
+              <!--Card-->
+              <div class="card">
+                <!--Card content-->
+                <div class="card-block">
+                  <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{ride.startLocation?.address?.streetName}} {{ride.startLocation?.address?.streetNumber}}</h4>
+                    <!--Text-->
+                    <span class="card-text">Price: </span>
+                    <span class="card-text">{{ride?.price}} $</span>
+                    <br/>
+                    <span class="card-text">Street name: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetName}}</span>
+                    <br/>
+                    <span class="card-text">Street number: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.streetNumber}}</span>
+                    <br/>
+                    <span class="card-text">City: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.city}}</span>
+                    <br/>
+                    <span class="card-text">Postal code: </span>
+                    <span class="card-text">{{ride?.startLocation?.address?.postalCode}}</span>
+                    <br/>
+                    <span class="card-text">Longitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.longitude}}</span>
+                    <br/>
+                    <span class="card-text">Latitude: </span>
+                    <span class="card-text">{{ride?.startLocation?.latitude}}</span>
+                    <br/>
+                    <span class="card-text">Car type: </span>
+                    <span class="card-text">{{ride?.carType}}</span>
+                    <br/>
+                    <span class="card-text">Timestamp: </span>
+                    <span class="card-text">{{ride?.timestamp}}</span>
+                    <br/>
+                    <span class="card-text">Status: </span>
+                    <span class="card-text">{{ride?.rideStatus}}</span>
+                    <br/><span class="card-text">Customer:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.customer?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.customer?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.customer?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Driver:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.driver?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.driver?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.driver?.lastname}}</span>
+                    <br/>
+                    <span class="card-text">Dispatcher:</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Username: </span>
+                    <span class="card-text">{{ride?.dispatcher?.username}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Name: </span>
+                    <span class="card-text">{{ride?.dispatcher?.name}}</span>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="card-text">Lastname: </span>
+                    <span class="card-text">{{ride?.dispatcher?.lastname}}</span>
+                    <div *ngIf="ride?.comments.length > 0">
+                      <div *ngFor="let comment of ride?.comments">
+                        <div>
+                          <br/>
+                          <span class="card-text">Rating: </span>
+                          <span>
+                            <a *ngFor="let rating of ratingList; let i = index" [ngClass]="{'no-hover': comment?.userId !== personalData?.id}" (click)="comment?.userId === personalData?.id ? rate(ride.id, i) : false">
+                              <i [ngStyle]="{'color': (i < comment?.rating) ? 'red' : 'grey'}" class="fa fa-star"></i>
+                            </a>
+                          </span>
+                          <textarea readonly="true" type="text" class="form-control form-control-lg" [value]="comment?.description"></textarea>
+                          <span *ngIf="comment?.description !== null" class="card-text float-left">{{comment?.user?.username}} at {{comment?.timestamp?.toLocaleDateString()}} {{comment?.timestamp?.toLocaleTimeString()}}</span>
+                          <br/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/.Card content-->
+              </div>
+              <!--/.Card-->
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

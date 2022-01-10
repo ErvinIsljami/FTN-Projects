@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.DataReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="654" d:DesignWidth="1009">
+    <Grid Background="#FF303030" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Button TabIndex="0" Grid.Row="0" Height="30" Width="150" Content="Show Daily Report" Command="{Binding ShowCommand}" CommandParameter="{Binding ElementName=ReportText}" />
+        <ScrollViewer Grid.Row="1">
+            <TextBlock x:Name="ReportText" Grid.Row="1" Margin="10 10 10 10" FontSize="14" Background="WhiteSmoke" FontWeight="DemiBold" TextBlock.TextAlignment="Justify" TextWrapping="Wrap" />
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+-- umesto -- gMap.SetPositionByKeywords("Novi Sad, Serbia");
+
+double blX = 45.2325;
+double blY = 19.793909;
+double trX = 45.277031;
+double trY = 19.894459;
+gMap.Position = new PointLatLng((blX+trX)/2, (blY+trY)/2);

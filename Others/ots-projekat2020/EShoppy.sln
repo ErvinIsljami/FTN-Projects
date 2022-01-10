@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShoppy", "EShoppy\EShoppy.csproj", "{C8BD3766-14FE-478D-86EC-7D7CAC4AA74A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBazaar.UnitTest", "EBazaar.UnitTest\EBazaar.UnitTest.csproj", "{2F495999-EA65-480A-B375-F6A7937AD07D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8BD3766-14FE-478D-86EC-7D7CAC4AA74A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8BD3766-14FE-478D-86EC-7D7CAC4AA74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8BD3766-14FE-478D-86EC-7D7CAC4AA74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8BD3766-14FE-478D-86EC-7D7CAC4AA74A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F495999-EA65-480A-B375-F6A7937AD07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F495999-EA65-480A-B375-F6A7937AD07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F495999-EA65-480A-B375-F6A7937AD07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F495999-EA65-480A-B375-F6A7937AD07D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4662A43-635A-48AD-AA9A-86EEE85B7C06}
+	EndGlobalSection
+EndGlobal

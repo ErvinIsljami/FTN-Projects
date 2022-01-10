@@ -1,0 +1,1 @@
+﻿public enum TransactionType { Payment, Withdrawal }

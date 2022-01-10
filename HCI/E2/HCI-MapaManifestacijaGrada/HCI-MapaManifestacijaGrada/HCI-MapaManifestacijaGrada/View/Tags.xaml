@@ -1,0 +1,40 @@
+﻿<Window x:Class="HCI_MapaManifestacijaGrada.View.Tags"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_MapaManifestacijaGrada.View"
+        mc:Ignorable="d"
+        MaxHeight="450" MaxWidth="800"
+        Title="Etikete manifestacija" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="LightBlue">
+    <Grid>
+        <DataGrid x:Name="dataGrid" 
+				  ItemsSource="{Binding Path=TagList}" 
+				  CanUserAddRows="False" 
+			      CanUserResizeColumns="False" 
+				  AutoGenerateColumns="False"
+				  IsReadOnly="True"
+				  SelectionMode="Single"
+				  HorizontalAlignment="Left" 
+				  Height="399" 
+				  Margin="10,10,0,0" 
+				  VerticalAlignment="Top" 
+				  Width="690" 
+				  Background="CadetBlue" 
+				  SelectedCellsChanged="OnRowSelect">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID oznaka" Width="*" Binding="{Binding JedinstvenaOznaka}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Boja" Width="*" Binding="{Binding Boja}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Opis" Width="*" Binding="{Binding Opis}"></DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="btnAdd" Content="Dodaj" HorizontalAlignment="Left" Margin="707,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnAdd_Click"  ToolTip="Dodaj novu etiketu manifestacije"/>
+        <Button x:Name="btnUpdate" Content="Izmeni" HorizontalAlignment="Left" Margin="707,35,0,0" VerticalAlignment="Top" Width="75"  ToolTip="Izmeni postojeću etiketu manifestacije" Click="BtnUpdate_Click"/>
+        <Button x:Name="btnDelete" Content="Obriši" HorizontalAlignment="Left" Margin="707,60,0,0" VerticalAlignment="Top" Width="75"  ToolTip="Obriši postojeću etiketu manifestacije" Click="BtnDelete_Click"/>
+        <Button x:Name="btnHelp" Content="Pomoć" HorizontalAlignment="Left" Margin="707,85,0,0" VerticalAlignment="Top" Width="75"  Click="BtnHelp_Click"/>
+
+    </Grid>
+</Window>

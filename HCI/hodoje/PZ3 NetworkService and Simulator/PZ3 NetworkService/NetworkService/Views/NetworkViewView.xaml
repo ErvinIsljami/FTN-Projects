@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="NetworkService.Views.NetworkViewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NetworkService.Views"
+             xmlns:viewModel ="clr-namespace:NetworkService.ViewModel"
+             xmlns:vml ="clr-namespace:NetworkService.VML"
+             xmlns:data="clr-namespace:NetworkService.Models"
+             vml:ViewModelLocator.AutoHookedUpViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="600">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type data:Road}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Id, Mode=TwoWay}" Width="100"/>
+                <TextBlock Text="{Binding Path=Label, Mode=TwoWay}" Width="100"/>
+                <TextBlock Text="{Binding Path=Type.NAME, Mode=TwoWay}" Width="100"/>
+                <TextBlock Text="{Binding Path=Value, Mode=TwoWay}" Width="100"/>
+                <TextBlock Text="{Binding Path=ShouldWarn, Mode=TwoWay}" Width="100"></TextBlock>
+                <TextBlock Text="{Binding Path=IsSelected, Mode=TwoWay}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ListView Name="ListViewName" Width="130" Height="525" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,10,0" ItemsSource="{Binding Roads}" MouseLeftButtonUp="ListViewName_OnMouseLeftButtonUp" SelectionChanged="ListViewName_OnSelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Name="ListViewItemGrid" Height="90" Width="90" HorizontalAlignment="Center">
+                        <Image Source="{Binding Type.IMG_URL}" VerticalAlignment="Top" HorizontalAlignment="Center" Stretch="Fill" Height="70" Width="70"></Image>
+                        <Canvas Height="90" Width="90" Opacity="0.8"></Canvas>
+                        <TextBox Text="{Binding Label}" IsEnabled="False" IsReadOnly="True" FontWeight="Bold" HorizontalContentAlignment="Center" BorderBrush="Transparent" Background="Transparent" Margin="0,70,0,0" Width="90"></TextBox>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <!--<ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>-->
+        </ListView>
+        <Canvas Height="525" Width="480" Background="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+            <Canvas Name="Can1" Height="70" Width="110" Background="White" Canvas.Top="39" Canvas.Left="10" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb1" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"/>
+            </Canvas>
+            <Canvas Name="Can2" Height="70" Width="110" Background="White" Canvas.Left="127" Canvas.Top="39" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb2" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can3" Height="70" Width="110" Background="White" Canvas.Left="243" Canvas.Top="39" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb3" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can4" Height="70" Width="110" Background="White" Canvas.Left="360" Canvas.Top="39" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb4" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can5" Height="70" Width="110" Background="White" Canvas.Left="10" Canvas.Top="169" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb5" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can6" Height="70" Width="110" Background="White" Canvas.Left="127" Canvas.Top="169" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb6" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can7" Height="70" Width="110" Background="White" Canvas.Left="243" Canvas.Top="169" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb7" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can8" Height="70" Width="110" Background="White" Canvas.Left="360" Canvas.Top="169" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb8" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can9" Height="70" Width="110" Background="White" Canvas.Left="10" Canvas.Top="299" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb9" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can10" Height="70" Width="110" Background="White" Canvas.Left="127" Canvas.Top="299" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb10" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can11" Height="70" Width="110" Background="White" Canvas.Left="243" Canvas.Top="299" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb11" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can12" Height="70" Width="110" Background="White" Canvas.Left="360" Canvas.Top="299" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb12" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can13" Height="70" Width="110" Background="White" Canvas.Left="10" Canvas.Top="429" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb13" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can14" Height="70" Width="110" Background="White" Canvas.Left="127" Canvas.Top="429" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb14" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can15" Height="70" Width="110" Background="White" Canvas.Left="243" Canvas.Top="429" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb15" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+            <Canvas Name="Can16" Height="70" Width="110" Background="White" Canvas.Left="360" Canvas.Top="429" AllowDrop="True" Drop="UIElement_OnDrop" DragOver="UIElement_OnDragOver">
+                <Button Height="20" Width="110" Content="Remove" Click="RemoveGridItemOnClick" FontWeight="Bold" FontSize="11" Canvas.Top="-20"></Button>
+                <TextBox Name="Tb16" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" Height="20" Width="110" Canvas.Top="70"></TextBox>
+                <Canvas Height="70" Width="110" Opacity="0.8"></Canvas>
+            </Canvas>
+        </Canvas>
+    </Grid>
+</UserControl>
+

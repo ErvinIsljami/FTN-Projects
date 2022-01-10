@@ -1,0 +1,22 @@
+﻿<Window x:Class="HCI_MapaManifestacijaGrada.View.AddTag"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_MapaManifestacijaGrada.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        MaxHeight="291.964" MaxWidth="330.196"
+        Title="Nova etiketa" Height="291.964" Width="330.196" Background="LightBlue">
+    <Grid>
+        <Label x:Name="label" Content="Jedinstvena oznaka:" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"  ToolTip="Unesite jedinstvenu oznaku etikete"/>
+        <Label x:Name="label1" Content="Boja:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"  ToolTip="Izaberite boju"/>
+        <xctk:ColorPicker Name ="ClrPcker_Background" HorizontalAlignment="Left" Height="23" Margin="130,70,0,0" VerticalAlignment="Top"  Width="180"></xctk:ColorPicker >
+        <Label x:Name="label2" Content="Opis:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"  ToolTip="Unesite opis etikete"/>
+        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="23" Margin="130,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox x:Name="tbDescription" HorizontalAlignment="Left" Height="110" Margin="130,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="btnCancel" Content="Otkaži" HorizontalAlignment="Left" Margin="91,231,0,0" VerticalAlignment="Top" Width="76" Click="BtnCancel_Click"/>
+        <Button x:Name="btnOk" Content="Dodaj" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="76" Click="BtnOk_Click"/>
+        <Button x:Name="btnHelp" Content="Pomoć" HorizontalAlignment="Left" Margin="172,231,0,0" VerticalAlignment="Top" Width="76" Click="BtnHelp_Click"/>
+    </Grid>
+</Window>

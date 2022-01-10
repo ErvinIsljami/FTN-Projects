@@ -1,0 +1,1 @@
+[{"Oznaka":"dasd","Boja":"#FF006400","Opis":"dasda"},{"Oznaka":"a","Boja":"#FFF0FFF0","Opis":"a"},{"Oznaka":"AS","Boja":"#FF9370DB","Opis":"As"}]
